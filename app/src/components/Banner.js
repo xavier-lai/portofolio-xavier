@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/header-img.svg";
+// import headerImg from "../assets/img/data-analysis.svg";
+// import headerImg from "../assets/img/startup-launch.svg";
+import headerImg from "../assets/img/basketball-player.svg";
+// import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -9,9 +12,9 @@ export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const [text, setText] = useState('');
-    const [delta, setDelta] = useState(170);
+    const [delta, setDelta] = useState(130);
     const [index, setIndex] = useState(1);
-    const toRotate = ["Hello everyone I'm Xavier Lai", "I'm a Data Engineer", "I'm a Data Scientist", "I'm a Ops Enginner"];
+    const toRotate = ["Hello everyone I'm Xavier Lai", "Data Engineer", "Data Scientist", "Ops Engineer"];
     const period = 2000;
 
     useEffect(() => {
