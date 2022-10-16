@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import { ArrowRightCircle } from "react-bootstrap-icons"
+import "animate.css";
+import TrackVisibility from 'react-on-screen';
 
-import headerImg from "../assets/img/header-img.svg"
+import headerImg from "../assets/img/header-img.svg";
 
 
 export const Banner = () => {
@@ -49,17 +51,20 @@ export const Banner = () => {
             <Container>
                 <Row className=" align-items-center">
                     <Col xs={12} md={6} xl={7}>
-                        <span className="tagline">Welcome to my portofolio</span>
-                        <h1>
-                            <span className="wrap">{text}</span>
-                        </h1>
-                        <p>Hello, I'm Xavier, {text}</p>
-                        <p><code>Delta : {delta}</code></p>
-                        <p><code> LoopIdx : {loopIdx}</code></p>
-                        <button onClick={() => { console.log("Connect") }}>
-                            Let's Connect
-                            <ArrowRightCircle size={25} />
-                        </button>
+                        <TrackVisibility>
+                            {({ isVisible }) =>
+                                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                                    <span className="tagline">Welcome to my portofolio</span>
+                                    <h1>
+                                        <span className="wrap">{text}</span>
+                                    </h1>
+                                    <p>Hello, I'm Xavier, {text}</p>
+                                    <button onClick={() => { console.log("Connect") }}>
+                                        Let's Connect
+                                        <ArrowRightCircle size={25} />
+                                    </button>
+                                </div>}
+                        </TrackVisibility>
                     </Col>
                     <Col xs={12} md={6} xl={7}>
                         <img src={headerImg} alt="Header Img" />
