@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../assets/img/logo.svg';
+import logo from "../assets/img/logo-no-background.png";
 import linkedinIcon from '../assets/img/linkedin-icon.svg';
-import resumeIcon from '../assets/img/resume-icon.svg';
+import resumeIcon from '../assets/img/xavier-photo-transparent.png'
+
 import { HashLink } from 'react-router-hash-link';
 import {
     BrowserRouter as Router
