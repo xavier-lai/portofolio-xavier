@@ -68,7 +68,7 @@ nav.navbar {
   }
   .resume-icon {
       display: inline-block;
-      margin-left: 2px;
+      margin-left: 1px;
   }
   .resume-icon a {
       width: 42px;
