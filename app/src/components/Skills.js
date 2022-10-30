@@ -6,6 +6,7 @@ import meter2 from "../assets/img/meter2.svg";
 import meter3 from "../assets/img/meter3.svg";
 import colorSharp from "../assets/img/color-sharp.png";
 
+import masterDegreePdf from "../assets/pdf/master_degree_xavier_lai.pdf";
 
 export const Skills = () => {
     const responsive = {
@@ -41,7 +42,7 @@ export const Skills = () => {
                     <Col>
                         <div className="skill-bx">
                             <h2>Skills</h2>
-                            <p>Graduated from Mathematical</p>
+                            <p><a href={masterDegreePdf} target="blank">Master’s degree</a> with honours in applied mathematics, data science, digisport option</p>
                             <Carousel responsive={responsive}>
                                 <div className="item">
                                     <img src={meter1} alt="Image1" />
