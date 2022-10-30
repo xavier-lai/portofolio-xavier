@@ -119,14 +119,14 @@ nav.navbar {
     width: 0%;
     height: 100%;
     position: absolute;
-    background-color: #fff;
+    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
     left: 0;
     top: 0;
     z-index: -1;
     transition: 0.3s ease-in-out;
   }
   .navbar-text button:hover {
-    color: #121212;
+    color: #fff;
   }
   .navbar-text button:hover::before {
       content: "";
