@@ -14,8 +14,18 @@ export const Banner = () => {
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(130);
     const [index, setIndex] = useState(1);
-    const toRotate = ["Hello everyone I'm Xavier Lai", "Data Engineer", "Data Scientist", "Ops Engineer"];
+    const toRotate = ["Hello everyone, I'm Xavier Lai", "Tech lead", "Data Engineer"];
     const period = 2000;
+
+
+
+    let textPrefix;
+
+    if (loopNum % toRotate.length > 0) {
+        textPrefix = "I work as a";
+    } else {
+        textPrefix = "";
+    }
 
     useEffect(() => {
         let ticker = setInterval(() => {
@@ -24,6 +34,7 @@ export const Banner = () => {
 
         return () => { clearInterval(ticker) };
     }, [text])
+
 
     const tick = () => {
         let i = loopNum % toRotate.length;
@@ -59,8 +70,14 @@ export const Banner = () => {
                             {({ isVisible }) =>
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <span className="tagline">Welcome to my Portfolio</span>
-                                    <h1> <span className="txt-rotate" dataPeriod="1000" data-rotate={toRotate}><span className="wrap">{text}</span></span></h1>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <h1>
+                                        <span className="txt-rotate" dataPeriod="1000" data-rotate={toRotate}>
+                                            <span className="wrap">
+                                                {textPrefix} {text}
+                                            </span>
+                                        </span>
+                                    </h1>
+                                    <p>I am a big fan of sports analysis who comes from a training in mathematics for data science.I will be happy to talk with you about any project combining my technical appeal with my sport passion.</p>
                                     <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
                                 </div>}
                         </TrackVisibility>
