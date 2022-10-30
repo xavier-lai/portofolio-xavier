@@ -50,10 +50,10 @@ export const NavBar = () => {
                         </Nav>
                         <span className="navbar-text">
                             <div className="social-icon">
-                                <a href="https://www.linkedin.com/in/xavier-lai-85a861131/" target="_blank" rel="noreferrer"><img src={linkedinIcon} alt="My linkedin" /></a>
+                                <a href="https://www.linkedin.com/in/xavier-lai-85a861131/" target="blank"><img src={linkedinIcon} alt="My linkedin" /></a>
                             </div>
                             <div className="resume-icon">
-                                <a href="#" target="_blank" rel="noreferrer" ><img src={resumeIcon} alt="My resume" /></a>
+                                <a href="#" target="blank"><img src={resumeIcon} alt="My resume" /></a>
                             </div>
                             <HashLink to='#connect'>
                                 <button className="vvd"><span>Let’s Connect</span></button>
