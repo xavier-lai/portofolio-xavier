@@ -1,44 +1,81 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
+import bbhLogo from "../assets/img/bbh.png";
+import dgfipLogo from "../assets/img/dgfip.jpg";
+import dgddiLogo from "../assets/img/dgddi.png";
+import cwaysLogo from "../assets/img/cw.jpg";
+import ngcLogo from "../assets/img/ngc.jpg";
+import nextrendsLogo from "../assets/img/nextrends.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
 
-    const projects = [
+    const projectsTab1 = [
         {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg1,
+            title: "Know your customer",
+            description: "Tech lead",
+            imgUrl: bbhLogo,
         },
         {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg2,
+            title: "Social network",
+            description: "Lead Data Engineer",
+            imgUrl: dgfipLogo,
         },
         {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg3,
+            title: "WebScraping",
+            description: "Tech lead",
+            imgUrl: dgddiLogo,
         },
         {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg1,
+            title: "C-Flash",
+            description: "Project manager & lead developper",
+            imgUrl: cwaysLogo,
         },
         {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg2,
+            title: "API",
+            description: "Ops engineer",
+            imgUrl: ngcLogo,
         },
         {
-            title: "Business Startup",
-            description: "Design & Development",
-            imgUrl: projImg3,
+            title: "Nextrends",
+            description: "Data Engineer",
+            imgUrl: nextrendsLogo,
+        },
+    ];
+
+
+    const projectsTab2 = [
+        {
+            title: "C-Flash",
+            description: "Project manager & lead developper",
+            imgUrl: cwaysLogo,
+        },
+        {
+            title: "C-Flash",
+            description: "Project manager & lead developper",
+            imgUrl: cwaysLogo,
+        },
+        {
+            title: "C-Flash",
+            description: "Project manager & lead developper",
+            imgUrl: cwaysLogo,
+        },
+        {
+            title: "C-Flash",
+            description: "Project manager & lead developper",
+            imgUrl: cwaysLogo,
+        },
+        {
+            title: "C-Flash",
+            description: "Project manager & lead developper",
+            imgUrl: cwaysLogo,
+        },
+        {
+            title: "C-Flash",
+            description: "Project manager & lead developper",
+            imgUrl: cwaysLogo,
         },
     ];
 
@@ -68,7 +105,7 @@ export const Projects = () => {
                                             <Tab.Pane eventKey="first">
                                                 <Row>
                                                     {
-                                                        projects.map((project, index) => {
+                                                        projectsTab1.map((project, index) => {
                                                             return (
                                                                 <ProjectCard
                                                                     key={index}
@@ -79,8 +116,19 @@ export const Projects = () => {
                                                     }
                                                 </Row>
                                             </Tab.Pane>
-                                            <Tab.Pane eventKey="section">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                                            <Tab.Pane eventKey="second">
+                                                <Row>
+                                                    {
+                                                        projectsTab2.map((project, index) => {
+                                                            return (
+                                                                <ProjectCard
+                                                                    key={index}
+                                                                    {...project}
+                                                                />
+                                                            )
+                                                        })
+                                                    }
+                                                </Row>
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="third">
                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>

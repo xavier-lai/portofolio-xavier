@@ -76,6 +76,8 @@
     border-radius: 30px;
     overflow: hidden;
     margin-bottom: 24px;
+    /* height: 235px; */
+    /* background-color: #fff; */
   }
   .proj-imgbx::before {
     content: "";
