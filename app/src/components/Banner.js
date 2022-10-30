@@ -78,7 +78,7 @@ export const Banner = () => {
                                         </span>
                                     </h1>
                                     <p align="justify">Former data scientist, I quickly developed a strong interest in data engineering during my experience in a French consulting firm.</p>
-                                    <p align="justify">In order to <font color="#d785ce"><strong>make the most of data</strong></font>, I understood that data science is not just machine learning. A data solution requires key steps such as upstream preparation, validation and deployment on various environments.</p>
+                                    <p align="justify">In order to <font color="#d785ce"><strong>make the most of the data</strong></font>, I understood that data science is not just machine learning. A data solution requires key steps such as upstream preparation, validation and deployment on various environments.</p>
                                     <p align="justify">The combination of this understanding and my skills allowed me to be a technical leader on various projects.</p>
                                     <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
                                 </div>}
