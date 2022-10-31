@@ -45,8 +45,14 @@ p, a, li, button, ul {
   text-decoration: none;
 }
 
+
+a:active, a:link, a:visited {
+   text-decoration:none;
+   color: #047cfc
+}
+
 a:hover {
-  text-decoration: none;
+  color: #d785ce !important;
 }
 
 img {
