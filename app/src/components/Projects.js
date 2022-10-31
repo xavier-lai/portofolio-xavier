@@ -1,18 +1,25 @@
+import 'animate.css';
+
+import TrackVisibility from 'react-on-screen';
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
+
 import bbhLogo from "../assets/img/bbh.png";
 import dgfipLogo from "../assets/img/dgfip.jpg";
 import dgddiLogo from "../assets/img/dgddi.png";
 import cwaysLogo from "../assets/img/cw.jpg";
 import ngcLogo from "../assets/img/ngc.jpg";
 import nextrendsLogo from "../assets/img/nextrends.jpg";
+import srfcLogo from "../assets/img/srfc.jpg";
+import insepLogo from "../assets/img/insep.jpg";
+import givengoLogo from "../assets/img/givengo.jpg";
+import s4healthLogo from "../assets/img/s4health.jpg";
+import nbatoolsLogo from "../assets/img/nba-tools.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
 
-    const projectsTab1 = [
+    const mainProjectsList = [
         {
             title: "Know your customer",
             description: "Tech lead",
@@ -46,7 +53,7 @@ export const Projects = () => {
     ];
 
 
-    const projectsTab2 = [
+    const otherProjectsList = [
         {
             title: "C-Flash",
             description: "Project manager & lead developper",
@@ -79,6 +86,39 @@ export const Projects = () => {
         },
     ];
 
+    const sportProjectsList = [
+        {
+            title: "Data expert",
+            description: "Developper",
+            imgUrl: srfcLogo,
+        },
+        {
+            title: "NBA tools",
+            description: "Owner",
+            imgUrl: nbatoolsLogo,
+        },
+        {
+            title: "Alpin skiing detection",
+            description: "Data scientist intern",
+            imgUrl: insepLogo,
+        },
+        {
+            title: "GIVE'N GO",
+            description: "Freelance consultant",
+            imgUrl: givengoLogo,
+        },
+        {
+            title: "Chemistry app",
+            description: "Main developper",
+            imgUrl: s4healthLogo,
+        },
+        {
+            title: "Injuries in the Olympics",
+            description: "Data analyst intern",
+            imgUrl: insepLogo,
+        },
+    ];
+
     return (
         <section className="project" id="projects">
             <Container>
@@ -89,23 +129,23 @@ export const Projects = () => {
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <h2>Projects</h2>
                                     <p align="justify">The majority of the projects were carried out during my experience in the consulting firm <a href="https://c-ways.com/" target="blank">C-Ways</a></p>
-                                    <Tab.Container id="projects-tabs" defaultActiveKey="first">
+                                    <Tab.Container id="projects-tabs" defaultActiveKey="mainTab">
                                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                                             <Nav.Item>
-                                                <Nav.Link eventKey="first">Main</Nav.Link>
+                                                <Nav.Link eventKey="mainTab">Main</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="second">Other</Nav.Link>
+                                                <Nav.Link eventKey="otherThab">Other</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="third">Sport</Nav.Link>
+                                                <Nav.Link eventKey="sportTab">Sport</Nav.Link>
                                             </Nav.Item>
                                         </Nav>
                                         <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                                            <Tab.Pane eventKey="first">
+                                            <Tab.Pane eventKey="mainTab">
                                                 <Row>
                                                     {
-                                                        projectsTab1.map((project, index) => {
+                                                        mainProjectsList.map((project, index) => {
                                                             return (
                                                                 <ProjectCard
                                                                     key={index}
@@ -116,10 +156,10 @@ export const Projects = () => {
                                                     }
                                                 </Row>
                                             </Tab.Pane>
-                                            <Tab.Pane eventKey="second">
+                                            <Tab.Pane eventKey="otherThab">
                                                 <Row>
                                                     {
-                                                        projectsTab2.map((project, index) => {
+                                                        otherProjectsList.map((project, index) => {
                                                             return (
                                                                 <ProjectCard
                                                                     key={index}
@@ -130,8 +170,20 @@ export const Projects = () => {
                                                     }
                                                 </Row>
                                             </Tab.Pane>
-                                            <Tab.Pane eventKey="third">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
+                                            <Tab.Pane eventKey="sportTab">
+                                                <p>As you may have noticed, I am a sports fan. I've been able to work on some projects in <font color="#d785ce"><strong>high performance sport</strong></font> during my career, especially during my experiences at the French National Institute for Sport and Physical Education (INSEP).</p>
+                                                <Row>
+                                                    {
+                                                        sportProjectsList.map((project, index) => {
+                                                            return (
+                                                                <ProjectCard
+                                                                    key={index}
+                                                                    {...project}
+                                                                />
+                                                            )
+                                                        })
+                                                    }
+                                                </Row>
                                             </Tab.Pane>
                                         </Tab.Content>
                                     </Tab.Container>
@@ -141,6 +193,6 @@ export const Projects = () => {
                 </Row>
             </Container>
             <img className="background-image-right" src={colorSharp2}></img>
-        </section>
+        </section >
     )
 }
