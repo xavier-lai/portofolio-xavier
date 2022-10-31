@@ -15,6 +15,10 @@ import insepLogo from "../assets/img/insep.jpg";
 import givengoLogo from "../assets/img/givengo.jpg";
 import s4healthLogo from "../assets/img/s4health.jpg";
 import nbatoolsLogo from "../assets/img/nba-tools.jpg";
+import lbmLogo from "../assets/img/lbm.jpg";
+import stokomaniLogo from "../assets/img/stokomani.jpg";
+import ddmLogo from "../assets/img/ddm.jpg";
+import gpeLogo from "../assets/img/gpe.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 
 export const Projects = () => {
@@ -55,34 +59,34 @@ export const Projects = () => {
 
     const otherProjectsList = [
         {
-            title: "C-Flash",
-            description: "Project manager & lead developper",
+            title: "Reactivation score",
+            description: "Data scientist",
+            imgUrl: lbmLogo,
+        },
+        {
+            title: "Customer strategy",
+            description: "Data scientist",
+            imgUrl: gpeLogo,
+        },
+        {
+            title: "Farm v3",
+            description: "Developper",
+            imgUrl: ddmLogo,
+        },
+        {
+            title: "Tech formations",
+            description: "Tech lead",
             imgUrl: cwaysLogo,
         },
         {
-            title: "C-Flash",
-            description: "Project manager & lead developper",
-            imgUrl: cwaysLogo,
+            title: "Customer Insights",
+            description: "Data scientist",
+            imgUrl: stokomaniLogo,
         },
         {
-            title: "C-Flash",
-            description: "Project manager & lead developper",
-            imgUrl: cwaysLogo,
-        },
-        {
-            title: "C-Flash",
-            description: "Project manager & lead developper",
-            imgUrl: cwaysLogo,
-        },
-        {
-            title: "C-Flash",
-            description: "Project manager & lead developper",
-            imgUrl: cwaysLogo,
-        },
-        {
-            title: "C-Flash",
-            description: "Project manager & lead developper",
-            imgUrl: cwaysLogo,
+            title: "Home & Shoes",
+            description: "Data scientist",
+            imgUrl: lbmLogo,
         },
     ];
 
