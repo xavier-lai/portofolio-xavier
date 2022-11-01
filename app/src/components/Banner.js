@@ -7,6 +7,7 @@ import headerImg from "../assets/img/basketball-player.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { Link } from 'react-router-dom';
 
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
@@ -80,7 +81,9 @@ export const Banner = () => {
                                     <p align="justify">Former data scientist, I quickly developed a strong interest in data engineering during my experience in a French consulting firm.</p>
                                     <p align="justify">In order to <font color="#d785ce"><strong>make the most of the data</strong></font>, I understood that data science is not just machine learning. A data solution requires key steps such as upstream preparation, validation and deployment on various environments.</p>
                                     <p align="justify">The combination of this understanding and my skills allowed me to be a technical leader on various projects.</p>
-                                    <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                                    <a href="#connect">
+                                        <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                                    </a>
                                 </div>}
                         </TrackVisibility>
                     </Col>
