@@ -72,7 +72,7 @@ export const Banner = () => {
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <span className="tagline">Welcome to my Portfolio</span>
                                     <h1>
-                                        <span className="txt-rotate" dataPeriod="1000" data-rotate={toRotate}>
+                                        <span className="txt-rotate" period="1000" data-rotate={toRotate}>
                                             <span className="wrap">
                                                 {textPrefix} {text}
                                             </span>
