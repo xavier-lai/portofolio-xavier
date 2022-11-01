@@ -46,9 +46,9 @@ p, a, li, button, ul {
 }
 
 
-a:active, a:link, a:visited {
-   text-decoration:none;
-   color: #047cfc
+a:is(:active, :link, :visited) {
+  text-decoration:none;
+  color: #047cfc;
 }
 
 a:hover {
