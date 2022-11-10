@@ -19,6 +19,7 @@ import lbmLogo from "../assets/img/lbm.jpg";
 import stokomaniLogo from "../assets/img/stokomani.jpg";
 import ddmLogo from "../assets/img/ddm.jpg";
 import gpeLogo from "../assets/img/gpe.jpg";
+import ur2Logo from "../assets/img/ur2.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 
 export const Projects = () => {
@@ -45,9 +46,9 @@ export const Projects = () => {
             imgUrl: cwaysLogo,
         },
         {
-            title: "API",
-            description: "Ops engineer",
-            imgUrl: ngcLogo,
+            title: " AI and ML technologies",
+            description: "Part-time Teacher",
+            imgUrl: ur2Logo,
         },
         {
             title: "Nextrends",
@@ -84,9 +85,9 @@ export const Projects = () => {
             imgUrl: stokomaniLogo,
         },
         {
-            title: "Home & Shoes",
-            description: "Data scientist",
-            imgUrl: lbmLogo,
+            title: "API",
+            description: "Ops engineer",
+            imgUrl: ngcLogo,
         },
     ];
 

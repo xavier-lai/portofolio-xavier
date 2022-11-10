@@ -82,43 +82,43 @@ export const Skills = () => {
     const getChartColor = (skillType) => {
         if (skillType === "Hard") {
             return [
-                "#d785ce",
-                "#d785ce",
+                "#78339e",
+                "#78339e",
                 "#2d60e8",
                 "#2d60e8",
-                "#d785ce",
+                "#78339e",
                 "#2d60e8",
                 "#2d60e8",
                 "#2d60e8",
                 "#2d60e8",
-                "#d785ce",
-                "#d785ce",
-                "#d785ce",
+                "#78339e",
+                "#78339e",
+                "#78339e",
                 "#2d60e8",
                 "#2d60e8",
-                "#d785ce",
+                "#78339e",
                 "#2d60e8",
-                "#d785ce",
-                "#d785ce",
-                "#d785ce",
-                "#d785ce",
+                "#78339e",
+                "#78339e",
+                "#78339e",
+                "#78339e",
             ];
         } else if (skillType === "Soft") {
             return [
-                "#d785ce",
+                "#78339e",
                 "#2d60e8",
                 "#2d60e8",
                 "#2d60e8",
-                "#d785ce",
+                "#78339e",
                 "#2d60e8",
-                "#d785ce",
-                "#d785ce",
+                "#78339e",
+                "#78339e",
                 "#2d60e8",
-                "#d785ce",
+                "#78339e",
                 "#2d60e8",
-                "#d785ce",
+                "#78339e",
                 "#2d60e8",
-                "#d785ce"
+                "#78339e"
             ]
         }
     }
@@ -159,7 +159,7 @@ export const Skills = () => {
                                                     <VennArc
                                                         stroke={(_data, _index, active, hovered) => {
                                                             if (hovered) {
-                                                                return "#d785ce";
+                                                                return "white";
                                                             } else if (active) {
                                                                 return "d785ce";
                                                             }
@@ -167,7 +167,14 @@ export const Skills = () => {
                                                     />
                                                 }
                                                 label={
-                                                    <VennLabel active={true} showAll={false} wrap={true} fontFamily="Centra" animated="false" fontSize={13} />
+                                                    <VennLabel
+                                                        active={true}
+                                                        showAll={false}
+                                                        wrap={true}
+                                                        fontFamily="Centra"
+                                                        fontSize={12}
+                                                        animated="false"
+                                                    />
                                                 }
                                             />}
                                     />
