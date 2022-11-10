@@ -7,7 +7,6 @@ import headerImg from "../assets/img/basketball-player.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import { Link } from 'react-router-dom';
 
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
