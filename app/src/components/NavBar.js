@@ -6,9 +6,9 @@ import {
 } from "react-router-dom";
 
 import logo from "../assets/img/logo-no-background.png";
-import linkedinIcon from '../assets/img/linkedin-icon.svg';
-import resumeIcon from '../assets/img/xavier-photo-transparent.png';
-
+import linkedinIcon from "../assets/img/linkedin-icon.svg";
+import resumeIcon from "../assets/img/xavier-photo-transparent.png";
+import resumePdf from "../assets/pdf/CV_Xavier_LAI_en.pdf"
 
 export const NavBar = () => {
 
@@ -54,7 +54,7 @@ export const NavBar = () => {
                                 <a href="https://www.linkedin.com/in/xavier-lai-85a861131/" target="blank"><img src={linkedinIcon} alt="My linkedin" /></a>
                             </div>
                             <div className="resume-icon">
-                                <a href="#" target="blank"><img src={resumeIcon} alt="My resume" /></a>
+                                <a href={resumePdf} target="blank"><img src={resumeIcon} alt="My resume" /></a>
                             </div>
                             <HashLink to='#connect'>
                                 <button className="vvd"><span>Let’s Connect</span></button>
