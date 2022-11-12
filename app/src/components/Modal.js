@@ -131,14 +131,12 @@ export const CustomModal = (props) => {
                         <Col xs={3} md={2}>
                             <img src={props.imgUrl} alt="Logo Header" className='img-header' />
                         </Col>
-                        <Col xs={12} md={8}>
+                        <Col xs={12} md={9}>
                             <Modal.Title id="contained-modal-title-vcenter">
-                                <h2 className='debug'>{ModalContentDict[props.projectId].Title}</h2>
+                                <h2>{ModalContentDict[props.projectId].Title}</h2>
                             </Modal.Title>
                         </Col>
-                        <Col xs={1} md={1}>
-                            <button type="button" class="btn-close btn-close-white" aria-label="Close" onClick={() => setModalShow(false)}></button>
-                        </Col>
+                        <button type="button" class="btn-close btn-close-white" aria-label="Close" onClick={() => setModalShow(false)}></button>
                     </Row>
 
                 </Modal.Header>
