@@ -29,31 +29,42 @@ export const Projects = () => {
             title: "Know your customer",
             description: "Tech lead",
             imgUrl: bbhLogo,
+            projectId: "KawaiBandb",
         },
         {
             title: "Social network",
             description: "Lead Data Engineer",
             imgUrl: dgfipLogo,
+            projectId: "RsDgfip",
+
         },
         {
             title: "WebScraping",
             description: "Tech lead",
             imgUrl: dgddiLogo,
+            projectId: "WsDgddi",
+
         },
         {
-            title: "C-Flash",
+            title: "CFlash",
             description: "Project manager & lead developper",
             imgUrl: cwaysLogo,
+            projectId: "Cflash",
+
         },
         {
             title: " AI and ML technologies",
             description: "Part-time Teacher",
             imgUrl: ur2Logo,
+            projectId: "Teaching",
+
         },
         {
             title: "Nextrends",
             description: "Data Engineer",
             imgUrl: nextrendsLogo,
+            projectId: "Nextrends",
+
         },
     ];
 
@@ -63,31 +74,42 @@ export const Projects = () => {
             title: "Reactivation score",
             description: "Data scientist",
             imgUrl: lbmLogo,
+            projectId: "ReactivationLbm",
+
         },
         {
             title: "Customer strategy",
             description: "Data scientist",
             imgUrl: gpeLogo,
+            projectId: "CiGpe",
+
         },
         {
             title: "Farm v3",
             description: "Developper",
             imgUrl: ddmLogo,
+            projectId: "Farm",
+
         },
         {
             title: "Tech formations",
             description: "Tech lead",
             imgUrl: cwaysLogo,
+            projectId: "Formation",
+
         },
         {
             title: "Customer Insights",
             description: "Data scientist",
             imgUrl: stokomaniLogo,
+            projectId: "CiStokomani",
+
         },
         {
             title: "API",
             description: "Ops engineer",
             imgUrl: ngcLogo,
+            projectId: "ApiNgc",
         },
     ];
 
@@ -96,31 +118,38 @@ export const Projects = () => {
             title: "Data expert",
             description: "Developper",
             imgUrl: srfcLogo,
+            projectId: "DataExpert",
+
         },
         {
             title: "NBA tools",
             description: "Owner",
             imgUrl: nbatoolsLogo,
+            projectId: "NbaTool",
         },
         {
             title: "Alpin skiing detection",
             description: "Data scientist intern",
             imgUrl: insepLogo,
+            projectId: "SkiingInsep",
         },
         {
             title: "GIVE'N GO",
             description: "Freelance consultant",
             imgUrl: givengoLogo,
+            projectId: "Givengo",
         },
         {
             title: "Chemistry app",
             description: "Main developper",
             imgUrl: s4healthLogo,
+            projectId: "S4Foot",
         },
         {
             title: "Injuries in the Olympics",
             description: "Data analyst intern",
             imgUrl: insepLogo,
+            projectId: "OlympicsInsep",
         },
     ];
 

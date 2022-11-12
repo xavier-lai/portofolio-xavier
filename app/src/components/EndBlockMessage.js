@@ -7,7 +7,7 @@ export const EndBlockMessage = () => {
             <div className="newsletter-bx">
                 <Row>
                     <Col>
-                        <h3>Thanks for watching !</h3>
+                        <h3>See you soon !</h3>
                     </Col>
                 </Row>
             </div>

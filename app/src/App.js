@@ -5,6 +5,7 @@ import './css/Skills.css'
 import './css/Projects.css'
 import './css/Contact.css'
 import './css/Footer.css'
+import './css/Modal.css'
 
 import { NavBar } from './components/NavBar'
 import { Banner } from './components/Banner'

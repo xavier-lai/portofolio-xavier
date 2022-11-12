@@ -1,0 +1,31 @@
+.project-modal p {
+    color: #B8B8B8;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.5em;
+    width: 96%;
+  }
+
+.project-modal .modal-content{
+    background-color: rgba(0, 0, 0, 0.89);
+    color: #fff;
+    width: 100%;
+    padding: 20px 15px;
+ }
+
+.project-modal h2 {
+    color: #0884fc;
+    vertical-align: middle;
+}
+
+.project-modal h2.debug {
+  padding: 20px;
+}
+
+
+.img-header {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
