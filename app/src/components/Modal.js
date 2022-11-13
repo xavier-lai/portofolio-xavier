@@ -113,7 +113,7 @@ export const CustomModal = (props) => {
             Title: "Titre",
             SubTitle: "SubTitle",
             Stack: "Python, Sql",
-            Description: "In progress .."
+            Description: "In progress ..."
         },
     }
 
