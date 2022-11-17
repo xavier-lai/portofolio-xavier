@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/portofolio-xavier/static/css/main.202aaf36.css",
-    "main.js": "/portofolio-xavier/static/js/main.bba1e5d4.js",
+    "main.js": "/portofolio-xavier/static/js/main.ed1cc975.js",
     "static/js/787.c1112931.chunk.js": "/portofolio-xavier/static/js/787.c1112931.chunk.js",
     "static/media/color-sharp.png": "/portofolio-xavier/static/media/color-sharp.bea361cfef80fefc2d1e.png",
     "static/media/color-sharp2.png": "/portofolio-xavier/static/media/color-sharp2.c87586c6c2f549cb4aa6.png",
-    "static/media/Resume-Xavier-LAI.png": "/portofolio-xavier/static/media/Resume-Xavier-LAI.e7a7493d2c2e1b767e34.png",
+    "static/media/Resume-Xavier-LAI.png": "/portofolio-xavier/static/media/Resume-Xavier-LAI.2b07985108fae7b489f8.png",
     "static/media/Resume-Xavier-LAI.pdf": "/portofolio-xavier/static/media/Resume-Xavier-LAI.929d09896aa526e7781d.pdf",
     "static/media/bbh.png": "/portofolio-xavier/static/media/bbh.c20f1dcd5c50422acc8a.png",
     "static/media/dgddi.png": "/portofolio-xavier/static/media/dgddi.953ee0d829029521e0f1.png",
@@ -35,11 +35,11 @@
     "index.html": "/portofolio-xavier/index.html",
     "static/media/linkedin-icon.svg": "/portofolio-xavier/static/media/linkedin-icon.721d5414c26365f117e71d46b6641cb2.svg",
     "main.202aaf36.css.map": "/portofolio-xavier/static/css/main.202aaf36.css.map",
-    "main.bba1e5d4.js.map": "/portofolio-xavier/static/js/main.bba1e5d4.js.map",
+    "main.ed1cc975.js.map": "/portofolio-xavier/static/js/main.ed1cc975.js.map",
     "787.c1112931.chunk.js.map": "/portofolio-xavier/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.202aaf36.css",
-    "static/js/main.bba1e5d4.js"
+    "static/js/main.ed1cc975.js"
   ]
 }
