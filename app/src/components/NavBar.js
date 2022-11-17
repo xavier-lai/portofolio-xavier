@@ -7,8 +7,8 @@ import {
 
 import logo from "../assets/img/logo-no-background.png";
 import linkedinIcon from "../assets/img/linkedin-icon.svg";
-import resumeIcon from "../assets/img/xavier-photo-transparent.png";
-import resumePdf from "../assets/pdf/CV_Xavier_LAI_en.pdf"
+import resumeIcon from "../assets/img/Resume-Xavier-LAI.png";
+import resumePdf from "../assets/pdf/Resume-Xavier-LAI.pdf"
 
 export const NavBar = () => {
 

@@ -3,7 +3,9 @@ import { EndBlockMessage } from "./EndBlockMessage"
 
 import logo from "../assets/img/logo-no-background.png"
 import linkedinIcon from '../assets/img/linkedin-icon.svg'
-import resumeIcon from '../assets/img/xavier-photo-transparent.png'
+import resumeIcon from "../assets/img/Resume-Xavier-LAI.png";
+import resumePdf from "../assets/pdf/Resume-Xavier-LAI.pdf"
+
 
 
 export const Footer = () => {
@@ -20,7 +22,7 @@ export const Footer = () => {
                             <a target="blank" href="https://www.linkedin.com/in/xavier-lai-85a861131/"><img src={linkedinIcon} alt="Linkedin" /></a>
                         </div>
                         <div className="resume-icon">
-                            <a target="blank" href="#"><img src={resumeIcon} alt="Resume" /></a>
+                            <a target="blank" href={resumePdf}><img src={resumeIcon} alt="Resume" /></a>
                         </div>
                     </Col>
                     <p>CopyRight 2022. Xavier Lai</p>
