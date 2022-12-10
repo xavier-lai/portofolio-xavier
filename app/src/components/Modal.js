@@ -9,16 +9,16 @@ export const CustomModal = (props) => {
     const ModalContentDict = {
         KawaiBandb: {
             Title: "Build a customer centric strategy",
-            SubTitle: "SubTitle",
+            SubTitle: "Know your customer trough data",
             Stack: "GCP | Docker | PySpark | SQL",
-            Description: "In progress ..",
+            Description: "B&B Hôtels, one of the world’s leading hotels, wanted to resize its data strategy. Thus, the group wanted to optimize the use of massive data harvesting via their various direct/digital sources.  \n  \n I first intervened as a tech lead to set up a PySpark work infrastructure on their cloud environment  in order to facilitate the development of all data scientists. Based on this environment, I cleaned and deployed a customer data unification cleaning algorithm. This algorithm made it possible to robustify the data and thus perform an analysis of data science. I was then part of the group returning the results to the steering & executive committee. Finally, as a technical reference, I helped the group to choose and set up a customer data platform within their cloud architecture.  \n  \n The B&B Hotels Group now uses its data to establish important campaigns and strategies.",
             Date: "Dec 2021 - Aug 2022"
         },
         RsDgfip: {
-            Title: "Detect occult activies from social medias",
-            SubTitle: "SubTitle",
+            Title: "Detect occult activities from social medias",
+            SubTitle: "Use web scraping to flag occult activities",
             Stack: "Python | Git Ci-Cd | PostgreSQL",
-            Description: "In progress ..",
+            Description: "The Directorate-General for Public Finance is a Directorate of the French Central Public Administration which reports to the Ministry of the Economy. Preventing undeclared/hidden activities is a major issue for this directorate \n\n As a Data Engineer I was, first of all, in charge of external data collection. I developed optimized scraping scripts from multiple social network plateform. I also scheduled and uploaded data through a PostgreSQL database. Finally, I participated in the deployment of the solution by writing some Ci-Cd scripts in order to deploy the analysis of the collected data in a complex government environment. \n\n Afterwards I worked again with DGFIP as a lead data engineer to audit the expansion of data collection. I then technically managed the audit and helped draft the report.",
             Date: "Aug 2021 - Jan 2022"
         },
         WsDgddi: {
