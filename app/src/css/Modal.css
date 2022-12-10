@@ -4,6 +4,8 @@
     letter-spacing: 0.8px;
     line-height: 1.5em;
     width: 96%;
+    white-space: pre-line;
+    text-align: justify;
   }
 
 .project-modal .modal-content{
