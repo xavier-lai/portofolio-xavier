@@ -44,9 +44,9 @@ export const CustomModal = (props) => {
         },
         Nextrends: {
             Title: "Detect and qualify trends from social medias",
-            SubTitle: "SubTitle",
+            SubTitle: "Use external sources to detect trends",
             Stack: "Python | Docker | PostgreSQL | Git Ci-Cd | Airflow | Flask | Bootstrap",
-            Description: "In progress ..",
+            Description: "Nextrends is a brand and a tool that fetch hot stream information from social networks. Then an algorithm process data and compute KPI's.\n\nThis tool was created by my ex Tech Lead Victor Andrieu. At his departure I was lead data engineering in the redesign of Nextrends. I then maintained and deployed new and robust features through the use of services, monitoring, analysis of time series and full-stack development. I also managed the Debian server hosting the solution. Finally I was in charge of small development team to improve the front Flask solution.",
             Date: "Feb 2021 - May 2022"
         },
         ReactivationLbm: {
