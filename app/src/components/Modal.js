@@ -37,9 +37,9 @@ export const CustomModal = (props) => {
         },
         Teaching: {
             Title: "Teaching AI technology courses in master",
-            SubTitle: "SubTitle",
+            SubTitle: "Teach data engineering trought an end to end project",
             Stack: "Python | Git | GCP",
-            Description: "In progress ..",
+            Description: "I intervened during 26 hours in the master applied mathematics to data science of Rennes (my previous formation). I have thus addressed the key points of a data scientist today. I built a project that brought them the main points of a data worker. Through the tools of a developer, to notions networks with data collection up to the use of a cloud for an oral restitution.\n\nIn fact as group they had to scrap a international retailer's website. Then they had to pre-process all data to be able to upload in a BigQuery DataSet. Finally, with millions of fake transactions, they had to resume buying behaviours with DataStudio and SQL.",
             Date: "Dec 2022 - Feb 2023"
         },
         Nextrends: {
