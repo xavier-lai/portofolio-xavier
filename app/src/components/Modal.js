@@ -30,9 +30,9 @@ export const CustomModal = (props) => {
         },
         Cflash: {
             Title: "Create a tailor-made big data crm analysis tool",
-            SubTitle: "SubTitle",
+            SubTitle: "Automate CRM analysis",
             Stack: "Python | PySpark",
-            Description: "In progress ..",
+            Description: "C-Ways has many customers who require CRM analysis. The questions asked are generally the same: How does my brand stand? What is the value of my customers? What are their buying behaviours? How can I improve my sales ? .. \n\n To answer to those questions data scientist used to compute analysis on transactions & clients files. C-Flash is a python package that automate all big data CRM analysis with Apache Spark. I was in charge of a team of 3 developers. In order to guarantee the success and the quick integration of the project I built a backlog and carried out all codes reviews. C-Flash is splitted in three bricks : \n\n1. Pre-process all clients and transactions files in PySpark (unificate, deduplicate, add features, rename, discretize..)\n2. CRM compute with flexible arguments (analysis by any features you may want). Write KPI's in a workbook.\n3. Read workbook and visualize all KPI's in automated powerpoint presentation.\n\n This tool allowed C-Ways to answer CRM questions in a short time.",
             Date: "May 2022 - Jul 2022"
         },
         Teaching: {

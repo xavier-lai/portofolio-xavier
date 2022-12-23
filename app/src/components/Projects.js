@@ -46,7 +46,7 @@ export const Projects = () => {
 
         },
         {
-            title: "CFlash",
+            title: "C-Flash",
             description: "Project manager & lead developper",
             imgUrl: cwaysLogo,
             projectId: "Cflash",
