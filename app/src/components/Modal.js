@@ -51,9 +51,9 @@ export const CustomModal = (props) => {
         },
         ReactivationLbm: {
             Title: "Reactivate customer by their potential",
-            SubTitle: "SubTitle",
+            SubTitle: "Create a customer reactivation segmentation ",
             Stack: "PySpark | SQL",
-            Description: "In progress ..",
+            Description: "Le Bon Marché is a French department store belonging to the Louis Vuitton group. The department wanted to have a tool to prioritize the potential of its inactive customers.\n\nI participated in the creation of the segmentation which was divided into three axes: reactivation value, reactivation sector and reactivation probability. I used Spark via python to extract and predict the different axes of segmentation. The probability of reactivation was estimated using a random forest.\n\nToday, Le Bon Marché uses this segmentation to reactivate its customers who have not bought in a certain time using targeted advertising campaigns",
             Date: "Feb 2021 - April 2021"
         },
         CiGpe: {
@@ -72,9 +72,9 @@ export const CustomModal = (props) => {
         },
         Formation: {
             Title: "Coach and supervize formation",
-            SubTitle: "SubTitle",
-            Stack: "Python | Git | Docker | Bash",
-            Description: "In progress ..",
+            SubTitle: "Skill up the data team with regard to technical stack",
+            Stack: "Python | Spark | Git | Docker | Bash",
+            Description: "At C-Ways I was in charge of getting the teams up to speed as soon as they arrived.\n\nSo I set up about a week of training. This allowed the developers to become familiar with the requirement of clean and functional programming. The training also included Git best practices as well as handling data scientist provisioning tools as docker services. Besides, the training allowed to approach the basis of the distributed calculation through a single node Spark.Moreover I worked with teams on new technologies such as cloud computing.\n\nFinally, created new technical tests to evaluate future candidates from a technical point of view.",
             Date: "Jan 2022 - Now"
         },
         CiStokomani: {
