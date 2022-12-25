@@ -2,7 +2,7 @@ name: Build and Deploy
 on: #Trigger on each push on branch main
   push:
     branches:
-      - main
+      - dev
 permissions:
   contents: write
 jobs:
