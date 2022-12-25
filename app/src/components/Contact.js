@@ -71,6 +71,7 @@ export const Contact = () => {
                                                 <textarea rows="6" name="message" placeholder="Message (French/English)" required></textarea>
                                                 <button type="submit"><span>Send</span></button>
                                             </Col>
+                                            <code>ENV VARIABLE DEBUG : {process.env.REACT_APP_EMAIJS_TEMPLATE_ID}</code>
                                             <ToastContainer />
                                         </Row>
                                     </form>
