@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { HashLink } from 'react-router-hash-link';
+import { useEffect, useState } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import {
     BrowserRouter as Router
 } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
-import logo from "../assets/img/logo-no-background.png";
 import linkedinIcon from "../assets/img/linkedin-icon.svg";
+import logo from "../assets/img/logo-no-background.png";
 import resumeIcon from "../assets/img/Resume-Xavier-LAI.png";
-import resumePdf from "../assets/pdf/Resume-Xavier-LAI.pdf"
+import resumePdf from "../assets/pdf/Resume-Xavier-LAI.pdf";
 
 export const NavBar = () => {
 

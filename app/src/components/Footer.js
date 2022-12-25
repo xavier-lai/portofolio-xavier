@@ -1,10 +1,10 @@
-import { Container, Row, Col } from "react-bootstrap"
-import { EndBlockMessage } from "./EndBlockMessage"
+import { Col, Container, Row } from "react-bootstrap";
+import { EndBlockMessage } from "./EndBlockMessage";
 
-import logo from "../assets/img/logo-no-background.png"
-import linkedinIcon from '../assets/img/linkedin-icon.svg'
+import linkedinIcon from '../assets/img/linkedin-icon.svg';
+import logo from "../assets/img/logo-no-background.png";
 import resumeIcon from "../assets/img/Resume-Xavier-LAI.png";
-import resumePdf from "../assets/pdf/Resume-Xavier-LAI.pdf"
+import resumePdf from "../assets/pdf/Resume-Xavier-LAI.pdf";
 
 
 
