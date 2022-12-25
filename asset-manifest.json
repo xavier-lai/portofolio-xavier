@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portofolio-xavier/static/css/main.21b84806.css",
-    "main.js": "/portofolio-xavier/static/js/main.a1e310ee.js",
+    "main.js": "/portofolio-xavier/static/js/main.6bca2a0f.js",
     "static/js/787.c1112931.chunk.js": "/portofolio-xavier/static/js/787.c1112931.chunk.js",
     "static/media/color-sharp.png": "/portofolio-xavier/static/media/color-sharp.bea361cfef80fefc2d1e.png",
     "static/media/color-sharp2.png": "/portofolio-xavier/static/media/color-sharp2.c87586c6c2f549cb4aa6.png",
@@ -35,11 +35,11 @@
     "index.html": "/portofolio-xavier/index.html",
     "static/media/linkedin-icon.svg": "/portofolio-xavier/static/media/linkedin-icon.dff40ae802524d8fc0cbce3f312abe4f.svg",
     "main.21b84806.css.map": "/portofolio-xavier/static/css/main.21b84806.css.map",
-    "main.a1e310ee.js.map": "/portofolio-xavier/static/js/main.a1e310ee.js.map",
+    "main.6bca2a0f.js.map": "/portofolio-xavier/static/js/main.6bca2a0f.js.map",
     "787.c1112931.chunk.js.map": "/portofolio-xavier/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.21b84806.css",
-    "static/js/main.a1e310ee.js"
+    "static/js/main.6bca2a0f.js"
   ]
 }
