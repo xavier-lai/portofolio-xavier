@@ -24,8 +24,6 @@ export const Contact = () => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        console.log(e.target);
-
         emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAIJS_TEMPLATE_ID, e.target, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
                 showPopUpMessage("success");
