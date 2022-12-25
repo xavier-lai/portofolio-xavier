@@ -23,8 +23,7 @@ jobs:
       #     REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
 
       - name: Deploy
-        run: cd app
         uses: JamesIves/github-pages-deploy-action@releases/v3 #Deploy to gh-pages
         with:
-          folder: build # The folder the action should deploy.
+          folder: app/build # The folder the action should deploy.
           branch: gh-pages #Branch where build is stored
