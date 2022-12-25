@@ -26,7 +26,7 @@ export const Contact = () => {
 
         console.log(e.target);
 
-        emailjs.sendForm('xavier_pro_gmail', 'contact_form_portofolio', e.target, "P_BlK1js0e9LY9tpm")
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAIJS_TEMPLATE_ID, e.target, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
                 showPopUpMessage("success");
             }, (error) => {
