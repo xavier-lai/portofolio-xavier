@@ -15,7 +15,7 @@ export const Contact = () => {
             });
         }
         else if (status === "error") {
-            toast.error('Something went wrong, please email me at xavier.lai.pro@gmail.com', {
+            toast.error(`Something went wrong, please email me at ${process.env.REACT_APP_EMAIL_PORTOFOLIO}`, {
                 position: toast.POSITION.TOP_RIGHT
             });
         }
@@ -23,8 +23,6 @@ export const Contact = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
-
-        console.log(e.target);
 
         emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAIJS_TEMPLATE_ID, e.target, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
@@ -71,7 +69,6 @@ export const Contact = () => {
                                                 <textarea rows="6" name="message" placeholder="Message (French/English)" required></textarea>
                                                 <button type="submit"><span>Send</span></button>
                                             </Col>
-                                            <code>ENV VARIABLE DEBUG : {process.env.REACT_APP_EMAIJS_TEMPLATE_ID}</code>
                                             <ToastContainer />
                                         </Row>
                                     </form>

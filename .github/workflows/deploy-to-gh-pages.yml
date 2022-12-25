@@ -14,15 +14,18 @@ jobs:
 
       - name: Install and Build
         run: |
+          cd app
           npm install
           npm run-script build
         env:
           REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
           REACT_APP_EMAIJS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAIJS_TEMPLATE_ID }}
           REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
+          REACT_APP_EMAIL_PORTOFOLIO: ${{ secrets.REACT_APP_EMAIL_PORTOFOLIO }}
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@releases/v3 #Deploy to gh-pages
         with:
-          folder: build # The folder the action should deploy.
-          branch: gh-pages #Branch where build is stored
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #Token to allow git push
+          FOLDER: app/build # The folder the action should deploy.
+          BRANCH: gh-pages #Branch where build is stored
