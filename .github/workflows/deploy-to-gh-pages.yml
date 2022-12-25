@@ -9,20 +9,21 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      # - name: Checkout
+      #   uses: actions/checkout@v1
 
-      - name: Install and Build
-        run: |
-          cd app
-          npm install
-          npm run-script build
-        env:
-          REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
-          REACT_APP_EMAIJS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAIJS_TEMPLATE_ID }}
-          REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
+      # - name: Install and Build
+      #   run: |
+      #     cd app
+      #     npm install
+      #     npm run-script build
+      #   env:
+      #     REACT_APP_EMAILJS_SERVICE_ID: ${{ secrets.REACT_APP_EMAILJS_SERVICE_ID }}
+      #     REACT_APP_EMAIJS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAIJS_TEMPLATE_ID }}
+      #     REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
 
       - name: Deploy
+        run: cd app
         uses: JamesIves/github-pages-deploy-action@releases/v3 #Deploy to gh-pages
         with:
           folder: build # The folder the action should deploy.
