@@ -58,16 +58,16 @@ export const CustomModal = (props) => {
         },
         CiGpe: {
             Title: "Know and develop GPE's customers",
-            SubTitle: "SubTitle",
+            SubTitle: "Understanding customer buying behaviour",
             Stack: "PySpark | SQL",
-            Description: "In progress ..",
+            Description: "GPE is a retail brand for children’s clothing. They needed to know how their customers behaved. What their values were. What strategies to put in place to boost sales\n\nI first used Spark to process data (unification, deduplication). I also participated in the first oral presentations to committees. Finally, we analyzed the data using the C-Flash package as well as creating segmentation.",
             Date: "May 2021 - Oct 2021"
         },
         Farm: {
             Title: "Track and monitor veal farming",
-            SubTitle: "SubTitle",
+            SubTitle: "Trace the quality of the leather sector with a tailor made aplication.",
             Stack: "Vue JS | AWS | Bootstrap",
-            Description: "In progress ..",
+            Description: "DDM (Louis Vuitton group) was keen to deploy an application for calf producers to help them ensure the quality of leather. We took the prototype again during the V2. The goal was to make a web application available in places with internet connection constraints.\n\nUnder the direction of my CTO, I developed with Vue.js, the functionalities of the V2 like to be able to scan multiple QR Code animals, to estimate the consumption of resources of a farm or to allow breeders to observe the state of each animal. We also used a state-of-the-art model to perform speech to text.\n\nThe application is now in production on several farms and it will be discussed to extend the application on more sectors.",
             Date: "June 2021 - Sept 2021"
         },
         Formation: {
@@ -79,16 +79,16 @@ export const CustomModal = (props) => {
         },
         CiStokomani: {
             Title: "Know the Stokomani's customer behaviors",
-            SubTitle: "SubTitle",
+            SubTitle: "Analyze customer behaviors throught big data",
             Stack: "PySpark",
-            Description: "In progress ..",
+            Description: "Stokomani is a destocking brand that wanted to know the situation of its stores\n\nThe special feature of this mission was that we had no customer data. Indeed, no loyalty program was set up. So we had to take other types of KPI’s. For example, I computed an attractiveness score based on the penetration rate estimated by tickets in a store and the number of inhabitants by professional social categories in each zone. Finally, I participated in all the oral reports to the steering committee.",
             Date: "Mar 2021 - May 2021"
         },
         ApiNgc: {
             Title: "Deploy a tailor-made geocodage API as micro services",
-            SubTitle: "SubTitle",
+            SubTitle: "Deploy microservice API on a client's Debian server",
             Stack: "Docker | Flask | Swagger | Git Ci-Cd | Linux",
-            Description: "In progress ..",
+            Description: "API Geocodage is a Python API that was deployed by the CTO. This API made it possible to geolocate addresses even when they were incomplete or misinformed. For this we used several public databases.\n\nI have updated the database query scripts as well as the various services. In addition, simplify and secure API authentication for internal access. Finally, I deployed the microservice API to the client using only a Makefile command.",
             Date: "Mar 2022 - May 2022"
         },
         DataExpert: {
