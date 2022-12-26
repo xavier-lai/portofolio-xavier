@@ -1,9 +1,9 @@
+import { useState } from 'react';
+import { Col, Container, Row } from "react-bootstrap";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import { Container, Row, Col } from "react-bootstrap";
-import { useState } from 'react';
+import { VennArc, VennDiagram, VennLabel, VennSeries } from "reaviz";
 import colorSharp from "../assets/img/color-sharp.png";
-import { VennDiagram, VennSeries, VennArc, VennLabel } from "reaviz"
 
 import masterDegreePdf from "../assets/pdf/master_degree_xavier_lai.pdf";
 
@@ -13,6 +13,9 @@ export const Skills = () => {
     const updateSkillType = (newSkillType) => {
         setSkillType(newSkillType)
     }
+
+    const BlueColor = "#2d60e8";
+    const PurpleColor = "#78339e";
 
     const getChartData = (skillType) => {
         if (skillType === "Hard") {
@@ -62,43 +65,43 @@ export const Skills = () => {
     const getChartColor = (skillType) => {
         if (skillType === "Hard") {
             return [
-                "#78339e",
-                "#78339e",
-                "#2d60e8",
-                "#2d60e8",
-                "#78339e",
-                "#2d60e8",
-                "#2d60e8",
-                "#2d60e8",
-                "#2d60e8",
-                "#78339e",
-                "#78339e",
-                "#78339e",
-                "#2d60e8",
-                "#2d60e8",
-                "#78339e",
-                "#2d60e8",
-                "#78339e",
-                "#78339e",
-                "#78339e",
-                "#78339e",
+                PurpleColor,
+                PurpleColor,
+                BlueColor,
+                BlueColor,
+                PurpleColor,
+                BlueColor,
+                BlueColor,
+                BlueColor,
+                BlueColor,
+                PurpleColor,
+                PurpleColor,
+                PurpleColor,
+                BlueColor,
+                BlueColor,
+                PurpleColor,
+                BlueColor,
+                PurpleColor,
+                PurpleColor,
+                PurpleColor,
+                PurpleColor,
             ];
         } else if (skillType === "Soft") {
             return [
-                "#78339e",
-                "#2d60e8",
-                "#2d60e8",
-                "#2d60e8",
-                "#78339e",
-                "#2d60e8",
-                "#78339e",
-                "#78339e",
-                "#2d60e8",
-                "#78339e",
-                "#2d60e8",
-                "#78339e",
-                "#2d60e8",
-                "#78339e"
+                PurpleColor,
+                BlueColor,
+                BlueColor,
+                BlueColor,
+                PurpleColor,
+                BlueColor,
+                PurpleColor,
+                PurpleColor,
+                BlueColor,
+                PurpleColor,
+                BlueColor,
+                PurpleColor,
+                BlueColor,
+                PurpleColor
             ]
         }
     }

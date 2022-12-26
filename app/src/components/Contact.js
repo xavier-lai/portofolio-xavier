@@ -1,14 +1,15 @@
-import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
 import emailjs from '@emailjs/browser';
-import { ToastContainer, toast } from 'react-toastify';
+import 'animate.css';
+import { Col, Container, Row } from "react-bootstrap";
+import TrackVisibility from 'react-on-screen';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import contactImg from "../assets/img/contact-img.svg";
 
 export const Contact = () => {
 
-    const showPopUpMessage = (status) => {
+    const showPopUpNotification = (status) => {
         if (status === "success") {
             toast.success('Message sent successfully !', {
                 position: toast.POSITION.TOP_RIGHT
@@ -26,9 +27,9 @@ export const Contact = () => {
 
         emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAIJS_TEMPLATE_ID, e.target, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
             .then((result) => {
-                showPopUpMessage("success");
+                showPopUpNotification("success");
             }, (error) => {
-                showPopUpMessage("error");
+                showPopUpNotification("error");
                 console.log(error.text);
             });
 

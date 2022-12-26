@@ -1,26 +1,26 @@
 import 'animate.css';
 
+import { Col, Container, Nav, Row, Tab } from "react-bootstrap";
 import TrackVisibility from 'react-on-screen';
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 
 import bbhLogo from "../assets/img/bbh.png";
-import dgfipLogo from "../assets/img/dgfip.jpg";
-import dgddiLogo from "../assets/img/dgddi.png";
-import cwaysLogo from "../assets/img/cw.jpg";
-import ngcLogo from "../assets/img/ngc.jpg";
-import nextrendsLogo from "../assets/img/nextrends.jpg";
-import srfcLogo from "../assets/img/srfc.jpg";
-import insepLogo from "../assets/img/insep.jpg";
-import givengoLogo from "../assets/img/givengo.jpg";
-import s4healthLogo from "../assets/img/s4health.jpg";
-import nbatoolsLogo from "../assets/img/nba-tools.jpg";
-import lbmLogo from "../assets/img/lbm.jpg";
-import stokomaniLogo from "../assets/img/stokomani.jpg";
-import ddmLogo from "../assets/img/ddm.jpg";
-import gpeLogo from "../assets/img/gpe.jpg";
-import ur2Logo from "../assets/img/ur2.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
+import cwaysLogo from "../assets/img/cw.jpg";
+import ddmLogo from "../assets/img/ddm.jpg";
+import dgddiLogo from "../assets/img/dgddi.png";
+import dgfipLogo from "../assets/img/dgfip.jpg";
+import givengoLogo from "../assets/img/givengo.jpg";
+import gpeLogo from "../assets/img/gpe.jpg";
+import insepLogo from "../assets/img/insep.jpg";
+import lbmLogo from "../assets/img/lbm.jpg";
+import nbatoolsLogo from "../assets/img/nba-tools.jpg";
+import nextrendsLogo from "../assets/img/nextrends.jpg";
+import ngcLogo from "../assets/img/ngc.jpg";
+import s4healthLogo from "../assets/img/s4health.jpg";
+import srfcLogo from "../assets/img/srfc.jpg";
+import stokomaniLogo from "../assets/img/stokomani.jpg";
+import ur2Logo from "../assets/img/ur2.jpg";
 
 export const Projects = () => {
 
@@ -78,6 +78,13 @@ export const Projects = () => {
 
         },
         {
+            title: "Tech formations",
+            description: "Tech lead",
+            imgUrl: cwaysLogo,
+            projectId: "Formation",
+
+        },
+        {
             title: "Customer strategy",
             description: "Data scientist",
             imgUrl: gpeLogo,
@@ -89,13 +96,6 @@ export const Projects = () => {
             description: "Developper",
             imgUrl: ddmLogo,
             projectId: "Farm",
-
-        },
-        {
-            title: "Tech formations",
-            description: "Tech lead",
-            imgUrl: cwaysLogo,
-            projectId: "Formation",
 
         },
         {
@@ -162,7 +162,9 @@ export const Projects = () => {
                             {({ isVisible }) =>
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <h2>Projects</h2>
-                                    <p align="justify">The majority of the projects were carried out during my experience in the consulting firm <a href="https://c-ways.com/" target="blank">C-Ways</a></p>
+                                    <p align="justify">
+                                        The majority of the projects were carried out during my experience in the consulting firm <a href="https://c-ways.com/" target="blank">C-Ways</a>
+                                    </p>
                                     <Tab.Container id="projects-tabs" defaultActiveKey="mainTab">
                                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                                             <Nav.Item>
@@ -205,7 +207,9 @@ export const Projects = () => {
                                                 </Row>
                                             </Tab.Pane>
                                             <Tab.Pane eventKey="sportTab">
-                                                <p>As you may have noticed, I am a sports fan. I've been able to work on some projects in <font color="#d785ce"><strong>high performance sport</strong></font> during my career, especially during my experiences at the French National Institute for Sport and Physical Education (INSEP).</p>
+                                                <p>
+                                                    As you may have noticed, I am a sports fan. I've been able to work on some projects in <font color="#d785ce"><strong>high performance sport</strong></font> during my career, especially during my experiences at the French National Institute for Sport and Physical Education (INSEP).
+                                                </p>
                                                 <Row>
                                                     {
                                                         sportProjectsList.map((project, index) => {

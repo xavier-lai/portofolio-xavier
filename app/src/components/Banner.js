@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import headerImg from "../assets/img/basketball-player.svg";
-import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
+import { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import { ArrowRightCircle } from 'react-bootstrap-icons';
 import TrackVisibility from 'react-on-screen';
+
+import headerImg from "../assets/img/basketball-player.svg";
 
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
@@ -12,8 +13,6 @@ export const Banner = () => {
     const [delta, setDelta] = useState(130);
     const toRotate = ["Hello everyone, I'm Xavier Lai", "Tech lead", "Data Engineer"];
     const period = 2000;
-
-
 
     let textPrefix;
 
