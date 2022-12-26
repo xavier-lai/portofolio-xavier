@@ -78,6 +78,13 @@ export const Projects = () => {
 
         },
         {
+            title: "Tech formations",
+            description: "Tech lead",
+            imgUrl: cwaysLogo,
+            projectId: "Formation",
+
+        },
+        {
             title: "Customer strategy",
             description: "Data scientist",
             imgUrl: gpeLogo,
@@ -89,13 +96,6 @@ export const Projects = () => {
             description: "Developper",
             imgUrl: ddmLogo,
             projectId: "Farm",
-
-        },
-        {
-            title: "Tech formations",
-            description: "Tech lead",
-            imgUrl: cwaysLogo,
-            projectId: "Formation",
 
         },
         {
