@@ -106,10 +106,10 @@ export const CustomModal = (props) => {
             Date: "Dec 2020 - Jan 2021"
         },
         SkiingInsep: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Detection and identification in alpine skiing",
+            SubTitle: "Model the trajectories of young alpine skiers to help French federation scouting",
             Stack: "R | SQL",
-            Description: "In progress ..",
+            Description: "The French Alpine Ski Federation funded a thesis to increase the medallibility of their teams. I supported Quentin Delarochelambert’s thesis in order to analyse the performance curves of young skiers.The goal was to detect which young people to call in the French team.\n\n So I modeled each future trajectory according to Moore’s law. Then I applied methods of dimension reduction and clustering on the coefficients of each trajectory. Finally, we have put in place a tool used directly by the Federation.\n\nQuentin’s thesis has not yet been defended.",
             Date: "May 2020 - Aug 2020"
         },
         Givengo: {
