@@ -92,17 +92,17 @@ export const CustomModal = (props) => {
             Date: "Mar 2022 - May 2022"
         },
         DataExpert: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Data at the service of high-level sport",
+            SubTitle: "A centralized platform to maximize performance",
             Stack: "GCP | Docker | Terraform | Flask | PostgreSQL | Bootstrap",
-            Description: "In progress ..",
+            Description: "Stade Rennais football club is a club in the elite of the French championship. He is also present in European campaigns such as the champions league or the europa league.\n\n The franchise wanted to be able to use and implement a single player repository from their training center to their pro team. I participated in the establishment of a platform called Data expert which centralizes the functionalities related to the club’s data. For example, the doctor could inform the medical attention of each patient with recall dates and the trainers could take this into account by adjusting their behaviorFor example, the doctor could inform the medical attention of each patient with recall dates and the trainers could take this into account by adjusting their training.In addition, each coach could prepare the game of the week by adding exercise patterns for his starting team. During the match the staff could rate each player. Many other features were present including the implementation of an AI model to predict the occurrence of a traumatic injury based on GPS, behavioral, medical and historical data.\n\nFrom a technical point of view the application was deployed automatically via a Ci-Cd which triggered a Terraform script. This script created a cloud run (GCP) instance using a PostGreSQL cloud base",
             Date: "Mar 2021 - Jan 2022"
         },
         NbaTool: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Sandbox tool to help scouting in NBA",
+            SubTitle: "Create a tool to inspect, compare and predict NBA's player performance.",
             Stack: "R Shiny",
-            Description: "In progress ..",
+            Description: "I made an R Shiny application based on the data of the seasons up to 2017 of all players in the NBA. So I create a first screen where the user can easily visualize which players are the most effective according to several categories of statistics. Then the user can compare two players on a season history. In addition, a screen was used to predict the number of team wins based on input variables. It turns out that the model was very accurate. This nevertheless requires estimating the input variables for the next season. For example, the speed of the game we play next season.\n\nI presented this application to a director of Paris Basket who found it interesting because it is transposable to the French championship. The application is a beta version in French.\n\nSee app : https://xavierlai.shinyapps.io/nba_tool/",
             Date: "Dec 2020 - Jan 2021"
         },
         SkiingInsep: {
