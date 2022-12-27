@@ -113,24 +113,24 @@ export const CustomModal = (props) => {
             Date: "May 2020 - Aug 2020"
         },
         Givengo: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Monitor and scout young basketball players",
+            SubTitle: "Integrate multiple data sources to anticipate a youth’s outbreak",
             Stack: "Python | Excel",
-            Description: "In progress ..",
+            Description: "Givengo executive committee approached me after seeing my NBA tool (see project). It was still the beginning of the project.\n\nThe purpose of the application was to integrate behavioral data into player detection. For example, a player’s listening score to his coach during important moments at the end of the game. I advised both CEO Noam Rudman and Romain Ostric on the mathematical aspects of detection score. That is, what were the mathematically relevant weights but also what statistical inferences could be made.\n\nToday, the application V1 is deployed as a SaaS : https://givengo.fr/pourquoi/",
             Date: "May 2020 - Jan 2021"
         },
         S4Foot: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Visualize and compare chemistry of each team composition",
+            SubTitle: "Create an app sharing an innovative live indicator.",
             Stack: "R Shiny",
-            Description: "In progress ..",
+            Description: "This application was created with the company S4Health which is composed of researchers in sports science of INSEP. The finding came from a thesis by Guillaume Saulière in which we understand that the alchemy of a team in collective sport is the first factor of performance.\n\nI was the main developer of the application and I realized a screen where the user can select the composition of two teams and compare the potential alchemy difference. Each indicator was updated live thanks to a scraping of the transfermarkt site.\n\nThe deployment of the beta version is still on stand by : https://s4foot.com/ligue1",
             Date: "May 2020 - Oct 2020"
         },
         OlympicsInsep: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Understanding Injury Factors at Games to Prevent Future Games",
+            SubTitle: "Use data management, modeling and vizualisation to prevent serious injury",
             Stack: "R | SQL",
-            Description: "In progress ...",
+            Description: "To prepare for the 2024 Olympic Games in Paris, the French teams wanted to be able to understand and avoid the injuries of their athletes.\n\nUnder the direction of an epidemiological expert, I built a study on trauma injuries. With the help of the medical data of the French team at the Beijing, London and Rio games, I was able to analyze and highlight the major factors of injury. This study is concluded by a report making time the state of past injuries . So the experts could go and solicit each sport to potentially change the training.",
             Date: "Feb 2017 - Aug 2017"
         },
     }
