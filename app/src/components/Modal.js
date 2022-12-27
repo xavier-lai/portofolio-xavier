@@ -74,7 +74,7 @@ export const CustomModal = (props) => {
             Title: "Coach and supervize formation",
             SubTitle: "Skill up the data team with regard to technical stack",
             Stack: "Python | Spark | Git | Docker | Bash",
-            Description: "At C-Ways I was in charge of getting the teams up to speed as soon as they arrived.\n\nSo I set up about a week of training. This allowed the developers to become familiar with the requirement of clean and functional programming. The training also included Git best practices as well as handling data scientist provisioning tools as docker services. Besides, the training allowed to approach the basis of the distributed calculation through a single node Spark.Moreover I worked with teams on new technologies such as cloud computing.\n\nFinally, created new technical tests to evaluate future candidates from a technical point of view.",
+            Description: "At C-Ways I was in charge of getting the teams up to speed as soon as they arrived.\n\nSo I set up about a week of training. This allowed the developers to become familiar with the requirement of clean and functional programming. The training also included Git best practices as well as handling data scientist provisioning tools as docker services. Besides, the training allowed to approach the basis of the distributed calculation through a single node Spark. Moreover I worked with teams on new technologies such as cloud computing.\n\nFinally, I created new technical tests to evaluate future candidates from a technical point of view.",
             Date: "Jan 2022 - Now"
         },
         CiStokomani: {
@@ -92,45 +92,45 @@ export const CustomModal = (props) => {
             Date: "Mar 2022 - May 2022"
         },
         DataExpert: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Data at the service of high-level sport",
+            SubTitle: "A centralized platform to maximize performance",
             Stack: "GCP | Docker | Terraform | Flask | PostgreSQL | Bootstrap",
-            Description: "In progress ..",
+            Description: "Stade Rennais football club is a club in the elite of the French championship. He is also present in European campaigns such as the champions league or the europa league.\n\n The franchise wanted to be able to use and implement a single player repository from their training center to their pro team. I participated in the establishment of a platform called Data expert which centralizes the functionalities related to the club’s data. For example, the doctor could inform the medical attention of each patient with recall dates and the trainers could take this into account by adjusting their training. In addition, each coach could prepare the game of the week by adding exercise patterns for his starting team. During the match the staff could rate each player. Many other features were present including the implementation of an AI model to predict the occurrence of a traumatic injury based on GPS, behavioral, medical and historical data.\n\nFrom a technical point of view the application was deployed automatically via a Ci-Cd which triggered a Terraform script. This script created a cloud run (GCP) instance using a PostGreSQL cloud base",
             Date: "Mar 2021 - Jan 2022"
         },
         NbaTool: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Sandbox tool to help scouting in NBA",
+            SubTitle: "Create a tool to inspect, compare and predict NBA's player performance.",
             Stack: "R Shiny",
-            Description: "In progress ..",
+            Description: "I made an R Shiny application based on the data of the seasons up to 2017 of all players in the NBA. So I create a first screen where the user can easily visualize which players are the most effective according to several categories of statistics. Then the user can compare two players on a season history. In addition, a screen was used to predict the number of team wins based on input variables. It turns out that the model was very accurate. This nevertheless requires estimating the input variables for the next season. For example, the speed of the game we play next season.\n\nI presented this application to a director of Paris Basket who found it interesting because it is transposable to the French championship. The application is a beta version in French.\n\nSee app : https://xavierlai.shinyapps.io/nba_tool/",
             Date: "Dec 2020 - Jan 2021"
         },
         SkiingInsep: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Detection and identification in alpine skiing",
+            SubTitle: "Model the trajectories of young alpine skiers to help French federation scouting",
             Stack: "R | SQL",
-            Description: "In progress ..",
+            Description: "The French Alpine Ski Federation funded a thesis to increase the medallibility of their teams. I supported Quentin Delarochelambert’s thesis in order to analyse the performance curves of young skiers. The goal was to detect which young people to call in the French team.\n\n So I modeled each future trajectory according to Moore’s law. Then I applied methods of dimension reduction and clustering on the coefficients of each trajectory. Finally, we have put in place a tool used directly by the Federation.\n\nQuentin’s thesis has not yet been defended.",
             Date: "May 2020 - Aug 2020"
         },
         Givengo: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Monitor and scout young basketball players",
+            SubTitle: "Integrate multiple data sources to anticipate a youth’s outbreak",
             Stack: "Python | Excel",
-            Description: "In progress ..",
+            Description: "Givengo executive committee approached me after seeing my NBA tool (see project). It was still the beginning of the project.\n\nThe purpose of the application was to integrate behavioral data into player detection. For example, a player’s listening score to his coach during important moments at the end of the game. I advised both CEO Noam Rudman and Romain Ostric on the mathematical aspects of detection score. That is, what were the mathematically relevant weights but also what statistical inferences could be made.\n\nToday, the application V1 is deployed as a SaaS : https://givengo.fr/pourquoi/",
             Date: "May 2020 - Jan 2021"
         },
         S4Foot: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Visualize and compare chemistry of each team composition",
+            SubTitle: "Create an app sharing an innovative live indicator.",
             Stack: "R Shiny",
-            Description: "In progress ..",
+            Description: "This application was created with the company S4Health which is composed of researchers in sports science of INSEP. The finding came from a thesis by Guillaume Saulière in which we understand that the alchemy of a team in collective sport is the first factor of performance.\n\nI was the main developer of the application and I realized a screen where the user can select the composition of two teams and compare the potential alchemy difference. Each indicator was updated live thanks to a scraping of the transfermarkt site.\n\nThe deployment of the beta version is still on stand by : https://s4foot.com/ligue1",
             Date: "May 2020 - Oct 2020"
         },
         OlympicsInsep: {
-            Title: "Titre",
-            SubTitle: "SubTitle",
+            Title: "Understanding Injury Factors at Games to Prevent Future Games",
+            SubTitle: "Use data management, modeling and vizualisation to prevent serious injury",
             Stack: "R | SQL",
-            Description: "In progress ...",
+            Description: "To prepare for the 2024 Olympic Games in Paris, the French teams wanted to be able to understand and avoid the injuries of their athletes.\n\nUnder the direction of an epidemiological expert, I built a study on trauma injuries. With the help of the medical data of the French team at the Beijing, London and Rio games, I was able to analyze and highlight the major factors of injury. This study is concluded by a report making time the state of past injuries . So the experts could go and solicit each sport to potentially change the training.",
             Date: "Feb 2017 - Aug 2017"
         },
     }
