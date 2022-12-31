@@ -38,3 +38,22 @@
   line-height: 1.5em;
   width: 80%;
 }
+
+.see-more {
+  color: white !important;
+  font-weight: 700;
+  font-size: 100px;
+  margin-top: 10px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+}
+
+.see-more:hover{
+  color: #0884fc !important;
+}
+
+.see-more:active{
+  color: #0884fc !important;
+  border-color: transparent !important;
+}

@@ -174,7 +174,7 @@ export const CustomModal = (props) => {
 
     return (
         <>
-            <Button variant="default" onClick={() => setModalShow(true)}>
+            <Button variant="default" className="see-more" onClick={() => setModalShow(true)}>
                 See more
             </Button>
 
