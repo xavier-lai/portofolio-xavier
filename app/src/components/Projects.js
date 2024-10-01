@@ -21,22 +21,22 @@ import s4healthLogo from "../assets/img/s4health.jpg";
 import srfcLogo from "../assets/img/srfc.jpg";
 import stokomaniLogo from "../assets/img/stokomani.jpg";
 import ur2Logo from "../assets/img/ur2.jpg";
+import cabaiaLogo from "../assets/img/cabaia.jpg";
 
 export const Projects = () => {
 
     const mainProjectsList = [
         {
+            title: "Data Infrastructure",
+            description: "Tech lead data",
+            imgUrl: cabaiaLogo,
+            projectId: "Cabaia",
+        },
+        {
             title: "Know your customer",
             description: "Tech lead",
             imgUrl: bbhLogo,
             projectId: "KawaiBandb",
-        },
-        {
-            title: "Social network",
-            description: "Lead Data Engineer",
-            imgUrl: dgfipLogo,
-            projectId: "RsDgfip",
-
         },
         {
             title: "WebScraping",
@@ -70,6 +70,13 @@ export const Projects = () => {
 
 
     const otherProjectsList = [
+        {
+            title: "Social network",
+            description: "Lead Data Engineer",
+            imgUrl: dgfipLogo,
+            projectId: "RsDgfip",
+
+        },
         {
             title: "Reactivation score",
             description: "Data scientist",
@@ -163,7 +170,7 @@ export const Projects = () => {
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <h2>Projects</h2>
                                     <p align="justify">
-                                        The majority of the projects were carried out during my experience in the consulting firm <a href="https://c-ways.com/" target="blank">C-Ways</a>
+                                        These projects were completed during my time at the consulting firm <a href="https://c-ways.com/" target="blank">C-Ways</a>, as a part-time teacher, or in my role as Tech Lead Data at <a href="https://www.cabaia.fr/" target="blank">Cabaia</a>.
                                     </p>
                                     <Tab.Container id="projects-tabs" defaultActiveKey="mainTab">
                                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
