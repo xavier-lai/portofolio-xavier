@@ -26,7 +26,7 @@ export const Projects = () => {
 
     const mainProjectsList = [
         {
-            title: "Build data infrastructure from scratch",
+            title: "Design & build the complete data infrastructure",
             description: "Tech lead data",
             imgUrl: bbhLogo,
             projectId: "Cabaia",
