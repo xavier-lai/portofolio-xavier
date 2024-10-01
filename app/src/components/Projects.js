@@ -26,17 +26,16 @@ export const Projects = () => {
 
     const mainProjectsList = [
         {
+            title: "Build data infrastructure from scratch",
+            description: "Tech lead data",
+            imgUrl: bbhLogo,
+            projectId: "Cabaia",
+        },
+        {
             title: "Know your customer",
             description: "Tech lead",
             imgUrl: bbhLogo,
             projectId: "KawaiBandb",
-        },
-        {
-            title: "Social network",
-            description: "Lead Data Engineer",
-            imgUrl: dgfipLogo,
-            projectId: "RsDgfip",
-
         },
         {
             title: "WebScraping",
@@ -70,6 +69,13 @@ export const Projects = () => {
 
 
     const otherProjectsList = [
+        {
+            title: "Social network",
+            description: "Lead Data Engineer",
+            imgUrl: dgfipLogo,
+            projectId: "RsDgfip",
+
+        },
         {
             title: "Reactivation score",
             description: "Data scientist",
@@ -163,7 +169,7 @@ export const Projects = () => {
                                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                                     <h2>Projects</h2>
                                     <p align="justify">
-                                        The majority of the projects were carried out during my experience in the consulting firm <a href="https://c-ways.com/" target="blank">C-Ways</a>
+                                        These projects were completed during my time at the consulting firm <a href="https://c-ways.com/" target="blank">C-Ways</a>, as a part-time teacher, or in my role as Tech Lead Data at <a href="https://www.cabaia.fr/" target="blank">Cabaia</a>.
                                     </p>
                                     <Tab.Container id="projects-tabs" defaultActiveKey="mainTab">
                                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">

@@ -7,6 +7,13 @@ import Modal from 'react-bootstrap/Modal';
 export const CustomModal = (props) => {
     const [modalShow, setModalShow] = useState(false);
     const ModalContentDict = {
+        Cabaia: {
+            Title: "Design and implement data infrastructure",
+            SubTitle: "A DataWarehouse designed to support critical decision-making",
+            Stack: "GCP | DBT | Airbyte | Dagster | PowerBI",
+            Description: "I architected and implemented the entire data infrastructure for CABAIA, a rapidly growing scale-up experiencing 80% annual growth. Utilizing a modern and flexible data stack, I ensured the system’s robustness to provide valuable insights across all departments. I empowered the team by establishing and maintaining key BI conventions and dashboards, enhancing data accessibility and decision-making. Additionally, I applied machine learning algorithms to optimize and streamline various processes",
+            Date: "Since 2024"
+        },
         KawaiBandb: {
             Title: "Build a customer centric strategy",
             SubTitle: "Know your customer trough data",
@@ -26,7 +33,7 @@ export const CustomModal = (props) => {
             SubTitle: "Plateform that tracks illegal traffics detected on social networks",
             Stack: "Python | PostgreSQL | Flask | NodeJS | Angular",
             Description: "One of the French intelligence services required the construction of a platform that would help cyber-customs to stop illegal trafficking. This ambitious project brought together several firms such as Sopra Steria/Cap Gemini and C-Ways.\n\n As Tech lead of the V2 project, I was in charge of the smooth development of an agile team of 3 developers. Specifically, I was in charge of data collection, database and data science. So I managed the development team to have a robust base that fed the visualization platform. First, we produced scripts that collect information through the websites' internal APIs. Once these thousands of data were put into the database, we deployed a detection model based on the reconnection of text and images. Finally, an angular application allowed cyber-customs to view only posts detected as illegal for the model. I also had to adapt to the many technical and administrative constraints of a French intelligence agency.\n\nThe agency now aims to evolve the law to boost detection via social networks.",
-            Date: "Jan 2022 - Now"
+            Date: "Jan 2022 - Sept 2023"
         },
         Cflash: {
             Title: "Create a tailor-made big data crm analysis tool",
