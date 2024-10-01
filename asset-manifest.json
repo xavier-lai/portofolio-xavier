@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portofolio-xavier/static/css/main.426a3818.css",
-    "main.js": "/portofolio-xavier/static/js/main.7d15f980.js",
+    "main.js": "/portofolio-xavier/static/js/main.f3e26179.js",
     "static/js/787.c1112931.chunk.js": "/portofolio-xavier/static/js/787.c1112931.chunk.js",
     "static/media/color-sharp.png": "/portofolio-xavier/static/media/color-sharp.bea361cfef80fefc2d1e.png",
     "static/media/color-sharp2.png": "/portofolio-xavier/static/media/color-sharp2.c87586c6c2f549cb4aa6.png",
@@ -30,16 +30,17 @@
     "static/media/insep.jpg": "/portofolio-xavier/static/media/insep.e8a6027dbdd1e2862c1d.jpg",
     "static/media/logo-no-background.png": "/portofolio-xavier/static/media/logo-no-background.ec299959f8aab56f17e0.png",
     "static/media/lbm.jpg": "/portofolio-xavier/static/media/lbm.b923eeefc1df76d8cdfc.jpg",
+    "static/media/cabaia.jpg": "/portofolio-xavier/static/media/cabaia.28a9b38dc5cc8610232a.jpg",
     "static/media/gpe.jpg": "/portofolio-xavier/static/media/gpe.a6e31c11f9484eb54475.jpg",
     "static/media/ddm.jpg": "/portofolio-xavier/static/media/ddm.8970348a2093a26f50c3.jpg",
     "index.html": "/portofolio-xavier/index.html",
     "static/media/linkedin-icon.svg": "/portofolio-xavier/static/media/linkedin-icon.dff40ae802524d8fc0cbce3f312abe4f.svg",
     "main.426a3818.css.map": "/portofolio-xavier/static/css/main.426a3818.css.map",
-    "main.7d15f980.js.map": "/portofolio-xavier/static/js/main.7d15f980.js.map",
+    "main.f3e26179.js.map": "/portofolio-xavier/static/js/main.f3e26179.js.map",
     "787.c1112931.chunk.js.map": "/portofolio-xavier/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.426a3818.css",
-    "static/js/main.7d15f980.js"
+    "static/js/main.f3e26179.js"
   ]
 }
