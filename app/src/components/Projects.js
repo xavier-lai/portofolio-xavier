@@ -21,14 +21,15 @@ import s4healthLogo from "../assets/img/s4health.jpg";
 import srfcLogo from "../assets/img/srfc.jpg";
 import stokomaniLogo from "../assets/img/stokomani.jpg";
 import ur2Logo from "../assets/img/ur2.jpg";
+import cabaiaLogo from "../assets/img/cabaia.jpg";
 
 export const Projects = () => {
 
     const mainProjectsList = [
         {
-            title: "Design & build the complete data infrastructure",
+            title: "Data Infrastructure",
             description: "Tech lead data",
-            imgUrl: bbhLogo,
+            imgUrl: cabaiaLogo,
             projectId: "Cabaia",
         },
         {
