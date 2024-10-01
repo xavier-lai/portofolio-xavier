@@ -10,7 +10,7 @@ export const CustomModal = (props) => {
         Cabaia: {
             Title: "Design and implement data infrastructure",
             SubTitle: "A DataWarehouse designed to support critical decision-making",
-            Stack: "GCP | DBT | Airbyte | Dagster | PowerBI",
+            Stack: "GCP | SQL | Python | DBT | Airbyte | Dagster | PowerBI",
             Description: "I architected and implemented the entire data infrastructure for CABAIA, a rapidly growing scale-up experiencing 80% annual growth. Utilizing a modern and flexible data stack, I ensured the system’s robustness to provide valuable insights across all departments. I empowered the team by establishing and maintaining key BI conventions and dashboards, enhancing data accessibility and decision-making. Additionally, I applied machine learning algorithms to optimize and streamline various processes",
             Date: "Since 2024"
         },
