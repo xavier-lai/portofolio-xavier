@@ -8,6 +8,7 @@ import {
 } from 'framer-motion'
 import { HeroContent } from './Hero'
 import { DataFlow } from './DataFlow'
+import { useIsMobile } from '../lib/useIsMobile'
 
 /**
  * Minimalist opening that develops into the hero as one pinned morph:
@@ -17,6 +18,7 @@ import { DataFlow } from './DataFlow'
  */
 export function Intro() {
   const reduce = useReducedMotion()
+  const isMobile = useIsMobile()
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -59,9 +61,11 @@ export function Intro() {
   })
   const greet = heyShown && !heyDismissed
 
-  if (reduce) {
+  // Mobile (or reduced motion): skip the pinned-morph intro — the stacked hero is taller than
+  // a phone screen and can't fit a 100vh clipped scene. Render it in normal, scrollable flow.
+  if (reduce || isMobile) {
     return (
-      <section id="home" className="flex min-h-screen items-center pt-28 md:pt-32">
+      <section id="home" className="pt-24">
         <HeroContent />
       </section>
     )
