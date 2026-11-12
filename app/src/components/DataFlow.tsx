@@ -6,43 +6,46 @@ const FUCHSIA = '#d946ef'
 const CYAN = '#22d3ee'
 const INK = '#0b0a14'
 
-// Two pipes: sources -> ingest hub -> transforms -> serve. They merge in the hub and in the sink.
-// The sink (right) is where the data "arrives to the profile".
-const pipes = [
-  {
-    color: VIOLET,
-    d: 'M120,75 C320,75 360,150 540,150 C700,150 720,85 900,85 C1040,85 1060,150 1120,150',
-    offset: 0,
-  },
-  {
-    color: CYAN,
-    d: 'M120,225 C320,225 360,150 540,150 C700,150 720,215 900,215 C1040,215 1060,150 1120,150',
-    offset: 0.05,
-  },
-]
+// Data mesh: 3 sources feed in → merge → trunk → branch into 3 pipes → reconverge → 1 exit
+// (the profile). Pipes draw in progressively and boxes ride the growing front.
+type Seg = { d: string; color: string; a: number; b: number } // a,b = reveal window (0..1)
 
-const nodes = [
-  { x: 120, y: 75, r: 7, color: VIOLET },
-  { x: 120, y: 225, r: 7, color: CYAN },
-  { x: 540, y: 150, r: 11, color: FUCHSIA },
-  { x: 900, y: 85, r: 8, color: VIOLET },
-  { x: 900, y: 215, r: 8, color: CYAN },
+const feeders: Seg[] = [
+  { d: 'M80,60 C180,60 230,120 300,170', color: VIOLET, a: 0.0, b: 0.14 },
+  { d: 'M300,40 L300,170', color: FUCHSIA, a: 0.0, b: 0.14 },
+  { d: 'M520,60 C420,60 370,120 300,170', color: CYAN, a: 0.0, b: 0.14 },
 ]
-const SINK = { x: 1120, y: 150 }
+const trunk: Seg[] = [{ d: 'M300,170 L300,340', color: FUCHSIA, a: 0.12, b: 0.3 }]
+const branches: Seg[] = [
+  { d: 'M300,340 C250,340 160,380 160,470 L160,600', color: VIOLET, a: 0.28, b: 0.55 },
+  { d: 'M300,340 L300,600', color: FUCHSIA, a: 0.28, b: 0.55 },
+  { d: 'M300,340 C350,340 440,380 440,470 L440,600', color: CYAN, a: 0.28, b: 0.55 },
+]
+const reconverge: Seg[] = [
+  { d: 'M160,600 C160,700 240,760 300,790', color: VIOLET, a: 0.52, b: 0.78 },
+  { d: 'M300,600 L300,790', color: FUCHSIA, a: 0.52, b: 0.78 },
+  { d: 'M440,600 C440,700 360,760 300,790', color: CYAN, a: 0.52, b: 0.78 },
+]
+const walls = [...feeders, ...trunk, ...branches, ...reconverge]
 
-const BOXES = 4 // boxes per pipe
-const DURATION = 0.45 // share of the scroll one box needs, from the jump to the sink
-const STAGGER = (1 - DURATION - 0.05) / (BOXES - 1)
-const JUMP = 0.16 // first part of a box journey: it hops into the pipe
-const BOX = 12
+// Continuous lanes (for box motion): feeder → trunk → branch → reconverge, one per branch.
+const lanes = [
+  'M80,60 C180,60 230,120 300,170 L300,340 C250,340 160,380 160,470 L160,600 C160,700 240,760 300,790',
+  'M300,40 L300,170 L300,340 L300,600 L300,790',
+  'M520,60 C420,60 370,120 300,170 L300,340 C350,340 440,380 440,470 L440,600 C440,700 360,760 300,790',
+]
+const laneColors = [VIOLET, FUCHSIA, CYAN]
+
+const EXIT = { x: 300, y: 790 }
+const COUNT = 9
+const BOX = 13
+const DUR = 0.5
+const FIRST = 0.08
+const STAGGER = (0.96 - DUR - FIRST) / (COUNT - 1)
+const DRAW_DONE = 0.78 // lanes fully drawn by this progress
 
 const clamp = (v: number, min = 0, max = 1) => Math.min(max, Math.max(min, v))
 
-/**
- * Data boxes that hop into the pipes and travel to the end of the pipeline as the visitor scrolls.
- * `progress` (0 → 1) is the scroll progress of the animation, the boxes are placed from it directly,
- * so scrolling back rewinds them.
- */
 export function DataFlow({
   progress,
   className,
@@ -50,62 +53,68 @@ export function DataFlow({
   progress: MotionValue<number>
   className?: string
 }) {
-  const pathRefs = useRef<(SVGPathElement | null)[]>([])
+  const wallRefs = useRef<(SVGPathElement | null)[]>([])
+  const inkRefs = useRef<(SVGPathElement | null)[]>([])
+  const wallLen = useRef<number[]>([])
+  const laneRefs = useRef<(SVGPathElement | null)[]>([])
+  const laneLen = useRef<number[]>([])
   const boxRefs = useRef<(SVGRectElement | null)[]>([])
-  const sinkRef = useRef<SVGGElement>(null)
+  const exitRef = useRef<SVGGElement>(null)
 
   const update = (p: number) => {
-    pipes.forEach((pipe, pi) => {
-      const path = pathRefs.current[pi]
-      if (!path) return
-      const length = path.getTotalLength()
-      const start = path.getPointAtLength(0)
-
-      for (let k = 0; k < BOXES; k++) {
-        const rect = boxRefs.current[pi * BOXES + k]
-        if (!rect) continue
-        const raw = (p - pipe.offset - k * STAGGER) / DURATION
-        if (raw <= 0 || raw >= 1) {
-          rect.setAttribute('opacity', '0')
-          continue
-        }
-
-        let x: number
-        let y: number
-        let angle = 0
-        let opacity = 1
-        if (raw < JUMP) {
-          // hop into the start of the pipe along an arc
-          const j = raw / JUMP
-          x = start.x - 70 * (1 - j)
-          y = start.y - 45 * 4 * j * (1 - j)
-          angle = -90 * (1 - j)
-          opacity = clamp(j * 3)
-        } else {
-          const t = (raw - JUMP) / (1 - JUMP)
-          const pt = path.getPointAtLength(t * length)
-          x = pt.x
-          y = pt.y
-          if (t > 0.94) opacity = clamp((1 - t) / 0.06)
-        }
-        rect.setAttribute('transform', `translate(${x} ${y}) rotate(${angle})`)
-        rect.setAttribute('opacity', String(opacity))
-      }
+    // progressive pipe reveal
+    walls.forEach((seg, i) => {
+      const len = wallLen.current[i]
+      if (!len) return
+      const drawn = clamp((p - seg.a) / (seg.b - seg.a))
+      const off = String(len * (1 - drawn))
+      wallRefs.current[i]?.setAttribute('stroke-dashoffset', off)
+      inkRefs.current[i]?.setAttribute('stroke-dashoffset', off)
     })
 
-    // the sink lights up while the boxes arrive
-    const sink = sinkRef.current
-    if (sink) {
-      const arrive = clamp((p - 0.45) / 0.55)
-      sink.setAttribute('opacity', String(0.25 + 0.75 * arrive))
-      sink.setAttribute(
-        'transform',
-        `translate(${SINK.x} ${SINK.y}) scale(${1 + 0.35 * arrive})`,
-      )
+    const drawnFrac = clamp((p - 0.02) / (DRAW_DONE - 0.02))
+
+    for (let i = 0; i < COUNT; i++) {
+      const rect = boxRefs.current[i]
+      if (!rect) continue
+      const li = i % lanes.length
+      const path = laneRefs.current[li]
+      const len = laneLen.current[li]
+      if (!path || !len) continue
+
+      const u = (p - (FIRST + i * STAGGER)) / DUR
+      if (u <= 0 || u >= 1.05) {
+        rect.setAttribute('opacity', '0')
+        continue
+      }
+      // ride the growing front: never go past what's drawn (until fully drawn)
+      const frac = drawnFrac >= 1 ? Math.min(u, 1) : Math.min(u, drawnFrac)
+      const pt = path.getPointAtLength(frac * len)
+      const op = clamp(u * 4) * clamp((1.05 - u) * 4)
+      rect.setAttribute('transform', `translate(${pt.x} ${pt.y})`)
+      rect.setAttribute('opacity', String(op))
+    }
+
+    const exit = exitRef.current
+    if (exit) {
+      const arrive = clamp((p - 0.6) / 0.35)
+      exit.setAttribute('opacity', String(0.2 + 0.8 * arrive))
+      exit.setAttribute('transform', `translate(${EXIT.x} ${EXIT.y}) scale(${1 + 0.5 * arrive})`)
     }
   }
 
   useEffect(() => {
+    wallLen.current = wallRefs.current.map((el, i) => {
+      const len = el?.getTotalLength() ?? 0
+      ;[el, inkRefs.current[i]].forEach((p) => {
+        if (p) {
+          p.setAttribute('stroke-dasharray', String(len))
+          p.setAttribute('stroke-dashoffset', String(len))
+        }
+      })
+      return len
+    })
+    laneLen.current = laneRefs.current.map((el) => el?.getTotalLength() ?? 0)
     update(progress.get())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -113,68 +122,85 @@ export function DataFlow({
 
   return (
     <svg
-      viewBox="0 0 1240 300"
+      viewBox="0 0 600 860"
       className={className}
       fill="none"
       aria-hidden
       preserveAspectRatio="xMidYMid meet"
     >
-      {/* pipe walls, then the hollow inside */}
-      {pipes.map((pipe, i) => (
+      {/* hidden lane paths for box motion */}
+      {lanes.map((d, i) => (
+        <path
+          key={`lane-${i}`}
+          ref={(el) => {
+            laneRefs.current[i] = el
+          }}
+          d={d}
+          stroke="none"
+        />
+      ))}
+
+      {/* pipe walls (progressive reveal) */}
+      {walls.map((seg, i) => (
         <path
           key={`wall-${i}`}
-          d={pipe.d}
-          stroke={pipe.color}
-          strokeOpacity={0.35}
+          ref={(el) => {
+            wallRefs.current[i] = el
+          }}
+          d={seg.d}
+          stroke={seg.color}
+          strokeOpacity={0.4}
           strokeWidth={22}
           strokeLinecap="round"
         />
       ))}
-      {pipes.map((pipe, i) => (
+      {/* hollow ink interior → tube look */}
+      {walls.map((seg, i) => (
         <path
-          key={`in-${i}`}
+          key={`ink-${i}`}
           ref={(el) => {
-            pathRefs.current[i] = el
+            inkRefs.current[i] = el
           }}
-          d={pipe.d}
+          d={seg.d}
           stroke={INK}
-          strokeWidth={17}
+          strokeWidth={16}
           strokeLinecap="round"
         />
       ))}
 
       {/* nodes */}
-      {nodes.map((n, i) => (
-        <g key={i}>
-          <circle cx={n.x} cy={n.y} r={n.r + 6} fill={n.color} opacity={0.12} />
-          <circle cx={n.x} cy={n.y} r={n.r} fill={n.color} opacity={0.8} />
-        </g>
+      {[
+        { x: 80, y: 60, c: VIOLET },
+        { x: 300, y: 40, c: FUCHSIA },
+        { x: 520, y: 60, c: CYAN },
+        { x: 300, y: 170, c: FUCHSIA },
+        { x: 300, y: 340, c: VIOLET },
+      ].map((n, i) => (
+        <circle key={`node-${i}`} cx={n.x} cy={n.y} r={7} fill={n.c} opacity={0.85} />
       ))}
 
-      {/* sink: where the data arrives */}
-      <g ref={sinkRef} transform={`translate(${SINK.x} ${SINK.y})`} opacity={0.25}>
-        <circle r={22} fill={CYAN} opacity={0.15} />
+      {/* exit (the profile) */}
+      <g ref={exitRef} transform={`translate(${EXIT.x} ${EXIT.y})`} opacity={0.2}>
+        <circle r={24} fill={CYAN} opacity={0.15} />
         <circle r={13} fill={CYAN} />
       </g>
 
       {/* data boxes */}
-      {pipes.flatMap((pipe, pi) =>
-        Array.from({ length: BOXES }, (_, k) => (
-          <rect
-            key={`box-${pi}-${k}`}
-            ref={(el) => {
-              boxRefs.current[pi * BOXES + k] = el
-            }}
-            x={-BOX / 2}
-            y={-BOX / 2}
-            width={BOX}
-            height={BOX}
-            rx={2.5}
-            fill={(pi + k) % 2 ? FUCHSIA : pipe.color}
-            opacity={0}
-          />
-        )),
-      )}
+      {Array.from({ length: COUNT }, (_, i) => (
+        <rect
+          key={`box-${i}`}
+          ref={(el) => {
+            boxRefs.current[i] = el
+          }}
+          x={-BOX / 2}
+          y={-BOX / 2}
+          width={BOX}
+          height={BOX}
+          rx={2.5}
+          fill={laneColors[i % laneColors.length]}
+          opacity={0}
+        />
+      ))}
     </svg>
   )
 }

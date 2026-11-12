@@ -21,7 +21,7 @@ export function NavBar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 24)
       // Revealed once past the intro morph (or always, under reduced motion).
-      setShow(reduce || window.scrollY > window.innerHeight * 0.7)
+      setShow(reduce || window.scrollY > window.innerHeight * 1.25)
     }
     onScroll()
     window.addEventListener('scroll', onScroll)
