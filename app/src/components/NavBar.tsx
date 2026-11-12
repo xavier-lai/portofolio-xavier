@@ -18,14 +18,20 @@ export function NavBar() {
 
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const onScroll = () => {
+    const update = () => {
       setScrolled(window.scrollY > 24)
-      // Revealed once past the intro morph (or always, under reduced motion).
-      setShow(reduce || window.scrollY > window.innerHeight * 1.5)
+      // The pinned intro only runs on desktop; elsewhere (mobile / reduced motion) show the
+      // nav immediately. On desktop it appears once past the intro morph.
+      const noIntro = reduce || window.innerWidth < 768
+      setShow(noIntro || window.scrollY > window.innerHeight * 1.5)
     }
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    update()
+    window.addEventListener('scroll', update)
+    window.addEventListener('resize', update)
+    return () => {
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+    }
   }, [])
 
   return (
