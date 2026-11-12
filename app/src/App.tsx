@@ -1,5 +1,5 @@
 import { NavBar } from './components/NavBar'
-import { Hero } from './components/Hero'
+import { Intro } from './components/Intro'
 import { Services } from './components/Services'
 import { Work } from './components/Work'
 import { Skills } from './components/Skills'
@@ -19,7 +19,7 @@ export default function App() {
       <NavBar />
       <ScrollProgressNav />
       <main>
-        <Hero />
+        <Intro />
         <Services />
         <Work />
         <Skills />

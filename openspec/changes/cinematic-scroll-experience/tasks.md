@@ -26,6 +26,14 @@
 - [x] 4.2 Thin progress line from global scroll progress
 - [x] 4.3 Rail entries smooth-scroll to sections; aria-hidden decorative, real anchors preserved
 
+## 6. Intro sequence (intro-sequence)
+
+- [x] 6.1 Refactor hero content into a presentational `HeroContent` (no own section/parallax)
+- [x] 6.2 Build `Intro` pinned scene (`#home`, tall track + sticky): question → answer → hero morph
+- [x] 6.3 Scroll cue on the first screen; background blooms from dormant via global progress
+- [x] 6.4 Hide nav + rail during the intro; reveal once the hero has formed
+- [x] 6.5 Reduced-motion: skip morph, render hero directly, nav visible
+
 ## 5. Verification
 
 - [x] 5.1 `npm run build` passes

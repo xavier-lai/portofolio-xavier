@@ -14,6 +14,14 @@ const sections = [
 export function ScrollProgressNav() {
   const { scrollYProgress } = useScroll()
   const [active, setActive] = useState('home')
+  const [show, setShow] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > window.innerHeight * 0.7)
+    onScroll()
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,7 +42,9 @@ export function ScrollProgressNav() {
   return (
     <nav
       aria-hidden
-      className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-end gap-3 lg:flex"
+      className={`fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-end gap-3 transition-opacity duration-500 lg:flex ${
+        show ? 'opacity-100' : 'pointer-events-none opacity-0'
+      }`}
     >
       {/* progress line */}
       <div className="absolute right-[5px] top-0 h-full w-px bg-white/10">

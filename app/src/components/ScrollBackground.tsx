@@ -25,6 +25,11 @@ export function ScrollBackground() {
   const y2 = useTransform(scrollYProgress, [0, 1], ['10%', '-16%'])
   const y3 = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
 
+  // Background starts dormant and blooms to life as the visitor scrolls into the intro.
+  const o1 = useTransform(scrollYProgress, [0, 0.1], [0.1, 0.4])
+  const o2 = useTransform(scrollYProgress, [0, 0.1], [0.08, 0.32])
+  const o3 = useTransform(scrollYProgress, [0, 0.1], [0.07, 0.3])
+
   if (reduce) {
     return (
       <div aria-hidden className="fixed inset-0 -z-10 overflow-hidden bg-ink-900">
@@ -38,15 +43,15 @@ export function ScrollBackground() {
     <div aria-hidden className="fixed inset-0 -z-10 overflow-hidden bg-ink-900">
       <motion.div
         className="absolute left-[8%] top-[-8%] h-[52vh] w-[52vh] rounded-full blur-[130px]"
-        style={{ backgroundColor: c1, y: y1, opacity: 0.4 }}
+        style={{ backgroundColor: c1, y: y1, opacity: o1 }}
       />
       <motion.div
         className="absolute right-[0%] top-[18%] h-[56vh] w-[56vh] rounded-full blur-[140px]"
-        style={{ backgroundColor: c2, y: y2, opacity: 0.32 }}
+        style={{ backgroundColor: c2, y: y2, opacity: o2 }}
       />
       <motion.div
         className="absolute bottom-[-6%] left-[30%] h-[50vh] w-[50vh] rounded-full blur-[130px]"
-        style={{ backgroundColor: c3, y: y3, opacity: 0.3 }}
+        style={{ backgroundColor: c3, y: y3, opacity: o3 }}
       />
       {/* subtle vignette to keep text legible */}
       <div className="absolute inset-0 bg-gradient-to-b from-ink-900/40 via-transparent to-ink-900/70" />

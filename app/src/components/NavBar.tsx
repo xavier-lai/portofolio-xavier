@@ -13,10 +13,16 @@ const links = [
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false)
+  const [show, setShow] = useState(false)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24)
+      // Revealed once past the intro morph (or always, under reduced motion).
+      setShow(reduce || window.scrollY > window.innerHeight * 0.7)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
@@ -24,9 +30,9 @@ export function NavBar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'border-b border-white/10 bg-ink-900/80 backdrop-blur-md' : ''
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        show ? '' : '-translate-y-full opacity-0'
+      } ${scrolled ? 'border-b border-white/10 bg-ink-900/80 backdrop-blur-md' : ''}`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <a href="#home" className="font-display text-lg font-bold text-white">
