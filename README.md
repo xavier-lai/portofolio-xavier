@@ -1,44 +1,100 @@
 # portofolio-xavier
 
-React JS App with next JS and animate CSS.
+Personal portfolio & online resume for **Xavier Lai — Data Platform Engineer / Data Ops**.
 
-## I - Initialisation
+Built with **React + Vite + TypeScript**, styled with **Tailwind CSS**, animated with **Framer Motion**.
 
-### A) Setup
+## Develop locally
 
-Make sure you install GIT on your OS.
-
-In Windows10 you must run powershell as admin and change Policy to be able to run script (.exe).
-
-GIT and other packages (node) may not working on VSC. In this case you need to set environment variable Path.
-
-### B) New App
-
-1. install node.js
-2. `npm install react`
-3. Create a Git project
-4. `npx create-react-app my-app`
-5. `cd my-app` && `npm start`
-
-## II - Dependencies
-
-Install dependencies with `npm install`.
-
-Bootstrap css:
-
-- react-bootstrap-icons
-- react-bootstrap
-  ...
-
-## III - Deploy
-
-This app is deployed to github pages. To do this you must install gh-pages. Then add custom script in `package.json`. 
-
-```
-"predeploy": "npm run build",
-"deploy": "gh-pages -d build"
+```bash
+cd app
+npm install
+npm run dev
 ```
 
-`cd my-app && npm run deploy`
+Opens at http://localhost:5173/portofolio-xavier/
 
-Remote App is updated throught Github Ci-Cd. When code is push to branch `main` it will trigger the build that will be stored to branch `gh-pages`. Then the build folder in this branch will be deployed to remote dns.
+Other scripts:
+
+- `npm run build` — type-check and build to `app/dist/`
+- `npm run preview` — serve the production build locally
+- `npm run lint` — TypeScript check only
+
+## Content
+
+All content lives in typed data files under `app/src/data/`:
+
+- `profile.ts` — name, title, tagline, bio, stats, links
+- `services.ts` — freelance tracks + service cards
+- `engagements.ts` — work case studies (title, company, kind, tags, impact, tech) + education
+- `tech.ts` — "My stack" logos, grouped by category (filterable)
+
+Edit these to update the site — no component changes needed. See `AGENTS.md` for the full
+architecture and conventions.
+
+## Contact form (Formspree)
+
+The contact form posts to [Formspree](https://formspree.io/) (no backend needed). Create a
+form, set its recipient to `xavier.lai.pro@gmail.com`, then copy `app/.env.example` to
+`app/.env` and fill in the endpoint:
+
+```
+VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/your_form_id
+VITE_CONTACT_EMAIL=xavier.lai.pro@gmail.com
+```
+
+For deployment, set the same variables as GitHub Actions **secrets**.
+
+## Ship to production
+
+The site is hosted on **GitHub Pages** and deploys automatically on every push to `main`.
+
+### How it works
+
+```
+push to main
+  → GitHub Actions (.github/workflows/deploy-to-gh-pages.yml)
+    → npm ci && npm run build   (Vite → app/dist/)
+      → publishes app/dist/ to the gh-pages branch
+        → GitHub Pages serves it at
+           https://xavier-lai.github.io/portofolio-xavier/
+```
+
+### To ship a change
+
+1. Merge (or push) your change to `main`.
+2. Watch the **Actions** tab — the *Build and Deploy* workflow runs (~1–2 min).
+3. When it's green, the live site is updated. Hard-refresh if you don't see it immediately
+   (GitHub Pages CDN can cache for a minute).
+
+### One-time setup / things to know
+
+- **Base path:** Vite is configured with `base: '/portofolio-xavier/'` (project page). If the
+  repo is ever renamed, update `base` in `app/vite.config.ts` to match, or assets 404.
+- **Pages source:** repo *Settings → Pages* must point at the `gh-pages` branch (root).
+- **Secrets:** the contact form needs these as repo secrets (*Settings → Secrets and variables
+  → Actions*), matching `app/.env.example`:
+  - `VITE_FORMSPREE_ENDPOINT`
+  - `VITE_CONTACT_EMAIL`
+  Without them the site still builds; the contact form just falls back to the email link.
+  (Neither value is truly secret — the Formspree endpoint is public — but keeping them as
+  env vars avoids hardcoding.)
+
+### Manual deploy (fallback)
+
+Only if CI is unavailable:
+
+```bash
+cd app
+npm ci
+npm run build          # outputs app/dist/
+npx gh-pages -d dist   # publishes dist/ to the gh-pages branch
+```
+
+Verify a production build locally before shipping: `npm run build && npm run preview`, then
+open the printed URL (served under `/portofolio-xavier/`).
+
+## Spec-driven development
+
+This project uses [OpenSpec](https://github.com/Fission-AI/OpenSpec). Change proposals live
+in `openspec/changes/`. See `openspec/project.md` for project context.

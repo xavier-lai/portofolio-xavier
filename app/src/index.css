@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-ink-900 text-slate-200 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-fuchsia/40 text-white;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-grad-text bg-clip-text text-transparent;
+  }
+
+  .card-glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm;
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-6xl px-5 py-20 md:py-28;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold text-white md:text-4xl;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-fuchsia/60;
+  }
+
+  /* Like the old site: outlined button, the gradient fills it from left to right on hover
+     (Let's talk, Get in touch, Send message). */
+  .btn-primary {
+    @apply btn relative isolate overflow-hidden border border-white/70 bg-transparent text-white;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-y-0 left-0 -z-10 w-0 bg-grad-brand transition-[width] duration-300 ease-in-out;
+  }
+
+  .btn-primary:hover:not(:disabled)::before,
+  .btn-primary:focus-visible::before {
+    @apply w-full;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    @apply border-transparent;
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/15 text-slate-200 hover:border-white/40 hover:bg-white/5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Thin custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0a14;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2550;
+  border-radius: 9999px;
+}
