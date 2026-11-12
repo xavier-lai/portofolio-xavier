@@ -35,8 +35,15 @@ export function NavBar() {
       } ${scrolled ? 'border-b border-white/10 bg-ink-900/80 backdrop-blur-md' : ''}`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <a href="#home" className="font-display text-lg font-bold text-white">
-          Xavier<span className="text-gradient">.</span>
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault()
+            scrollToId('#home')
+          }}
+          className="font-display text-lg font-bold text-white"
+        >
+          Xavier Lai<span className="text-gradient">.</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">

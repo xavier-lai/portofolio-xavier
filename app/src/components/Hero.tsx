@@ -1,3 +1,4 @@
+import { motion, type MotionValue } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, MapPin } from 'lucide-react'
 import { profile } from '../data/profile'
 import { CountUp } from '../lib/CountUp'
@@ -11,8 +12,16 @@ function StatValue({ value }: { value: string }) {
   return <CountUp value={Number(m[1])} suffix={m[2]} />
 }
 
-/** Presentational hero content. Appearance/motion is driven by the Intro scene. */
-export function HeroContent() {
+/** Presentational hero content. Appearance/motion is driven by the Intro scene.
+ *  `greet` pops the "Hey!" bubble over the portrait, `heyFade` (scroll-linked, 1 → 0)
+ *  makes it disappear when the visitor keeps scrolling. */
+export function HeroContent({
+  greet = true,
+  heyFade,
+}: {
+  greet?: boolean
+  heyFade?: MotionValue<number>
+}) {
   return (
     <div className="w-full">
       <div className="section grid items-center gap-12 pb-8 pt-0 md:grid-cols-[1.2fr_0.8fr] md:pb-10">
@@ -81,6 +90,21 @@ export function HeroContent() {
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-brand-violet/25 via-ink-700/40 to-ink-900 backdrop-blur-sm">
             <img src={photo} alt={profile.name} className="w-full object-contain" />
           </div>
+
+          {/* "Hey!" greeting, fades out on scroll */}
+          <motion.div
+            style={heyFade ? { opacity: heyFade } : undefined}
+            className="absolute -left-3 -top-4 z-10 md:-left-6"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6, y: 6 }}
+              animate={greet ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.1 }}
+              className="relative rounded-2xl rounded-bl-sm border border-white/15 bg-ink-800/90 px-3 py-1.5 text-sm font-semibold text-white shadow-lg backdrop-blur-sm"
+            >
+              Hey!
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
