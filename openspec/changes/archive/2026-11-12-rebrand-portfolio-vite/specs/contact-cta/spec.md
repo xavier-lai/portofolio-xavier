@@ -1,19 +1,21 @@
 ## ADDED Requirements
 
 ### Requirement: Contact form
-The site SHALL provide a contact form that sends messages via EmailJS.
+The site SHALL provide a contact form that sends messages to Xavier via Formspree.
 
 #### Scenario: Successful send
 - **WHEN** the visitor submits the contact form with valid fields
-- **THEN** the message is sent via EmailJS and a success confirmation is shown
+- **THEN** the message is posted to the Formspree endpoint and a clear success confirmation
+  (a "Message sent!" state replacing the form) is shown
 
 #### Scenario: Send failure fallback
-- **WHEN** the EmailJS send fails
+- **WHEN** the Formspree request fails or no endpoint is configured
 - **THEN** an error message is shown with a direct email fallback address
 
 #### Scenario: Vite env configuration
-- **WHEN** the app reads EmailJS configuration
-- **THEN** it uses `import.meta.env.VITE_*` variables documented in `.env.example`
+- **WHEN** the app reads its form configuration
+- **THEN** it uses `import.meta.env.VITE_FORMSPREE_ENDPOINT` (and `VITE_CONTACT_EMAIL` for the
+  fallback), documented in `.env.example`
 
 ### Requirement: Resume download and social links
 The site SHALL expose the current resume for download and link to LinkedIn and GitHub.

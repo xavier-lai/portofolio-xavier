@@ -1,15 +1,15 @@
 import { useRef, useState } from 'react'
-import emailjs from '@emailjs/browser'
-import { Download, Github, Linkedin, Mail, Send } from 'lucide-react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { CheckCircle2, Download, Github, Linkedin, Mail, Send } from 'lucide-react'
 import { Reveal } from '../lib/motion'
 import { profile } from '../data/profile'
 import resume from '../assets/pdf/Xavier-Lai-Resume.pdf'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+// Formspree endpoint (https://formspree.io/). Public by design; set the recipient
+// (xavier.lai.pro@gmail.com) in the Formspree form settings.
+const ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || ''
 const FALLBACK_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || profile.email
 
 export function Contact() {
@@ -18,20 +18,27 @@ export function Contact() {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!formRef.current) return
+    const form = formRef.current
+    if (!form) return
 
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+    if (!ENDPOINT) {
       setStatus('error')
       return
     }
 
     setStatus('sending')
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
-        publicKey: PUBLIC_KEY,
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
       })
-      setStatus('success')
-      formRef.current.reset()
+      if (res.ok) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
@@ -89,47 +96,85 @@ export function Contact() {
             </Reveal>
           </div>
 
-          {/* Right: form */}
+          {/* Right: form / confirmation */}
           <div className="p-8">
-            <form ref={formRef} onSubmit={onSubmit} className="space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Field name="firstname" placeholder="First name" required />
-                <Field name="lastname" placeholder="Last name" required />
-              </div>
-              <Field type="email" name="email" placeholder="Email address" required />
-              <Field type="tel" name="phone" placeholder="Phone (optional)" />
-              <textarea
-                name="message"
-                rows={5}
-                placeholder="What can I help you with?"
-                required
-                className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-brand-fuchsia/50 focus:outline-none focus:ring-1 focus:ring-brand-fuchsia/40"
-              />
+            <AnimatePresence mode="wait">
+              {status === 'success' ? (
+                <motion.div
+                  key="sent"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex h-full flex-col items-center justify-center py-10 text-center"
+                  aria-live="polite"
+                >
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: 'spring', stiffness: 240, damping: 16 }}
+                    className="grid h-16 w-16 place-items-center rounded-full bg-grad-brand text-white shadow-lg shadow-brand-violet/30"
+                  >
+                    <CheckCircle2 size={32} />
+                  </motion.div>
+                  <h3 className="mt-5 font-display text-2xl font-bold text-white">
+                    Message sent!
+                  </h3>
+                  <p className="mt-2 max-w-sm text-sm text-slate-300">
+                    Thanks for reaching out — your message is on its way. I’ll get back to
+                    you shortly.
+                  </p>
+                  <button onClick={() => setStatus('idle')} className="btn-ghost mt-6">
+                    Send another
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.form
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  ref={formRef}
+                  onSubmit={onSubmit}
+                  className="space-y-4"
+                >
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value="New message from your portfolio"
+                  />
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <Field name="firstname" placeholder="First name" required />
+                    <Field name="lastname" placeholder="Last name" required />
+                  </div>
+                  <Field type="email" name="email" placeholder="Email address" required />
+                  <Field type="tel" name="phone" placeholder="Phone (optional)" />
+                  <textarea
+                    name="message"
+                    rows={5}
+                    placeholder="What can I help you with?"
+                    required
+                    className="w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-brand-fuchsia/50 focus:outline-none focus:ring-1 focus:ring-brand-fuchsia/40"
+                  />
 
-              <button
-                type="submit"
-                disabled={status === 'sending'}
-                className="btn-primary w-full disabled:opacity-60"
-              >
-                {status === 'sending' ? 'Sending…' : 'Send message'}
-                <Send size={16} />
-              </button>
+                  <button
+                    type="submit"
+                    disabled={status === 'sending'}
+                    className="btn-primary w-full disabled:opacity-60"
+                  >
+                    {status === 'sending' ? 'Sending…' : 'Send message'}
+                    <Send size={16} />
+                  </button>
 
-              {status === 'success' && (
-                <p className="text-sm text-brand-cyan">
-                  Thanks — your message was sent. I’ll get back to you soon.
-                </p>
+                  {status === 'error' && (
+                    <p className="text-sm text-rose-400" aria-live="polite">
+                      Something went wrong. Please email me directly at{' '}
+                      <a className="underline" href={`mailto:${FALLBACK_EMAIL}`}>
+                        {FALLBACK_EMAIL}
+                      </a>
+                      .
+                    </p>
+                  )}
+                </motion.form>
               )}
-              {status === 'error' && (
-                <p className="text-sm text-rose-400">
-                  Something went wrong. Please email me directly at{' '}
-                  <a className="underline" href={`mailto:${FALLBACK_EMAIL}`}>
-                    {FALLBACK_EMAIL}
-                  </a>
-                  .
-                </p>
-              )}
-            </form>
+            </AnimatePresence>
           </div>
         </div>
       </div>

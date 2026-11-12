@@ -12,7 +12,7 @@ become a modern brand and client-conversion tool. Content source of truth is the
 - Bold, colorful gradient design that reads senior/technical and animates fluidly.
 - Sections: hero, services, experience timeline, selected projects, skills, contact.
 - Keep GitHub Pages deployment working under `/portofolio-xavier`.
-- Keep EmailJS contact and resume download.
+- Working contact form and resume download.
 
 **Non-Goals:**
 - No backend/CMS; content lives in typed data files.
@@ -33,8 +33,9 @@ become a modern brand and client-conversion tool. Content source of truth is the
   to `/portofolio-xavier/` in `vite.config.ts` for Pages.
 - **Deploy**: GitHub Actions builds with Vite (`dist/`) and publishes to `gh-pages`. Update
   the existing workflow's build/publish dir from CRA `build/` to Vite `dist/`.
-- **EmailJS kept**: same env-var based `@emailjs/browser` flow; Vite env vars use `VITE_`
-  prefix (`import.meta.env.VITE_*`).
+- **Contact via Formspree**: the form posts to a Formspree endpoint with `fetch` (no SDK,
+  no backend); the endpoint comes from `import.meta.env.VITE_FORMSPREE_ENDPOINT`. (Originally
+  scoped as EmailJS; switched to Formspree for a simpler, SDK-free integration.)
 
 ## Risks / Trade-offs
 
@@ -42,7 +43,8 @@ become a modern brand and client-conversion tool. Content source of truth is the
   replaced in one reviewable change; git retains history.
 - [GitHub Pages base path mismatch breaks asset URLs] → Set Vite `base` to repo name and use
   relative asset imports; verify built `dist/` locally before deploy.
-- [EmailJS env vars renamed to VITE_*] → Document new names in README and `.env.example`.
+- [Contact endpoint is build-time env] → Document `VITE_FORMSPREE_ENDPOINT` in README and
+  `.env.example`; fall back to a mailto link if unset.
 - [Framer Motion animations hurt accessibility/perf] → Guard with `prefers-reduced-motion`
   and keep reveal animations lightweight.
 

@@ -32,16 +32,15 @@ All content lives in typed data files under `app/src/data/`:
 Edit these to update the site — no component changes needed. See `AGENTS.md` for the full
 architecture and conventions.
 
-## Contact form (EmailJS)
+## Contact form (Formspree)
 
-The contact form uses [EmailJS](https://www.emailjs.com/). Copy `app/.env.example` to
-`app/.env` and fill in your keys:
+The contact form posts to [Formspree](https://formspree.io/) (no backend needed). Create a
+form, set its recipient to `xavier.lai.pro@gmail.com`, then copy `app/.env.example` to
+`app/.env` and fill in the endpoint:
 
 ```
-VITE_EMAILJS_SERVICE_ID=...
-VITE_EMAILJS_TEMPLATE_ID=...
-VITE_EMAILJS_PUBLIC_KEY=...
-VITE_CONTACT_EMAIL=...
+VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/your_form_id
+VITE_CONTACT_EMAIL=xavier.lai.pro@gmail.com
 ```
 
 For deployment, set the same variables as GitHub Actions **secrets**.
@@ -75,11 +74,11 @@ push to main
 - **Pages source:** repo *Settings → Pages* must point at the `gh-pages` branch (root).
 - **Secrets:** the contact form needs these as repo secrets (*Settings → Secrets and variables
   → Actions*), matching `app/.env.example`:
-  - `VITE_EMAILJS_SERVICE_ID`
-  - `VITE_EMAILJS_TEMPLATE_ID`
-  - `VITE_EMAILJS_PUBLIC_KEY`
+  - `VITE_FORMSPREE_ENDPOINT`
   - `VITE_CONTACT_EMAIL`
   Without them the site still builds; the contact form just falls back to the email link.
+  (Neither value is truly secret — the Formspree endpoint is public — but keeping them as
+  env vars avoids hardcoding.)
 
 ### Manual deploy (fallback)
 

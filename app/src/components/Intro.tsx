@@ -23,42 +23,46 @@ export function Intro() {
     offset: ['start start', 'end start'],
   })
 
-  // The section is 300vh and pinned for the first 200vh (progress 0 → 0.667):
-  // question → "data part" with the data boxes hopping through the pipes → hero → "Hey!" fades.
-  const qOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0])
-  const qY = useTransform(scrollYProgress, [0, 0.07], ['0px', '-48px'])
+  // Section is 300vh; the sticky scene unpins near progress ~0.67. The whole intro is
+  // compressed into the first ~0.42 so the hero is revealed early and HELD centered until
+  // unpin — leaving a real window to show the "Hey!" on the settled profile.
+  const qOpacity = useTransform(scrollYProgress, [0, 0.04], [1, 0])
+  const qY = useTransform(scrollYProgress, [0, 0.05], ['0px', '-48px'])
 
   // Answer appears CENTERED and alone first (easy to read), then rises as the pipes draw in.
-  const aOpacity = useTransform(scrollYProgress, [0.05, 0.1, 0.34, 0.4], [0, 1, 1, 0])
-  const aY = useTransform(scrollYProgress, [0.14, 0.24], ['0px', '-240px'])
+  const aOpacity = useTransform(scrollYProgress, [0.04, 0.08, 0.24, 0.3], [0, 1, 1, 0])
+  const aY = useTransform(scrollYProgress, [0.1, 0.17], ['0px', '-240px'])
 
   // Pipes draw in progressively (not shown initially); boxes ride the growing front.
-  const flowOpacity = useTransform(scrollYProgress, [0.16, 0.22, 0.4, 0.46], [0, 1, 1, 0])
-  const flowProgress = useTransform(scrollYProgress, [0.2, 0.44], [0, 1])
+  const flowOpacity = useTransform(scrollYProgress, [0.1, 0.15, 0.3, 0.35], [0, 1, 1, 0])
+  const flowProgress = useTransform(scrollYProgress, [0.12, 0.32], [0, 1])
 
   // "Warp": bursts out of the exit mouth, covers the screen, clears to the hero.
-  const warpScale = useTransform(scrollYProgress, [0.4, 0.52], [0, 42])
-  const warpOpacity = useTransform(scrollYProgress, [0.4, 0.47, 0.56, 0.62], [0, 1, 1, 0])
+  const warpScale = useTransform(scrollYProgress, [0.28, 0.4], [0, 42])
+  const warpOpacity = useTransform(scrollYProgress, [0.28, 0.34, 0.42, 0.48], [0, 1, 1, 0])
 
-  // Hero is revealed just after the warp and HELD centered for a good while (clearly visible).
-  const heroOpacity = useTransform(scrollYProgress, [0.52, 0.6], [0, 1])
-  const heroScale = useTransform(scrollYProgress, [0.52, 0.72], [0.92, 1])
-  const heroY = useTransform(scrollYProgress, [0.52, 0.66], ['24px', '0px'])
-  const heroPE = useTransform(scrollYProgress, [0.6, 0.61], ['none', 'auto'])
+  // Hero revealed early, then HELD centered (progress ~0.4 → unpin ~0.67).
+  const heroOpacity = useTransform(scrollYProgress, [0.4, 0.47], [0, 1])
+  const heroScale = useTransform(scrollYProgress, [0.4, 0.56], [0.92, 1])
+  const heroY = useTransform(scrollYProgress, [0.4, 0.5], ['24px', '0px'])
+  const heroPE = useTransform(scrollYProgress, [0.47, 0.48], ['none', 'auto'])
 
   const cueOpacity = useTransform(scrollYProgress, [0, 0.04], [1, 0])
 
-  // "Hey!" pops in with the hero and disappears when the visitor keeps scrolling.
-  const heyFade = useTransform(scrollYProgress, [0.92, 0.98], [1, 0])
-  const [greet, setGreet] = useState(false)
+  // "Hey!" appears a bit AFTER the profile has settled (not on reveal), then disappears on
+  // further scroll and never returns (both latches are one-way).
+  const [heyShown, setHeyShown] = useState(false)
+  const [heyDismissed, setHeyDismissed] = useState(false)
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    if (v > 0.6 && !greet) setGreet(true)
+    if (v > 0.52 && !heyShown) setHeyShown(true)
+    if (v > 0.62 && !heyDismissed) setHeyDismissed(true)
   })
+  const greet = heyShown && !heyDismissed
 
   if (reduce) {
     return (
       <section id="home" className="flex min-h-screen items-center pt-28 md:pt-32">
-        <HeroContent greet />
+        <HeroContent />
       </section>
     )
   }
@@ -98,7 +102,7 @@ export function Intro() {
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY, pointerEvents: heroPE }}
           className="w-full"
         >
-          <HeroContent greet={greet} heyFade={heyFade} />
+          <HeroContent greet={greet} />
         </motion.div>
 
         {/* Warp burst out of the pipe mouth */}

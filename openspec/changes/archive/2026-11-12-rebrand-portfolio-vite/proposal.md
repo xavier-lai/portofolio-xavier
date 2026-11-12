@@ -15,8 +15,9 @@ be rebuilt.
   C-Ways, Rennes 2 teaching).
 - Add a **freelance services** section ("what I can do for you").
 - Replace the 19-logo project grid with a small set of curated **case-study** projects.
-- Replace the reaviz Venn skills chart with a modern, categorized skills presentation.
-- Keep the contact flow (EmailJS) and resume download; refresh LinkedIn/GitHub links.
+- Replace the reaviz Venn skills chart with a filterable "My stack" logo cloud.
+- Add a client-facing freelance rate (TJM) estimator.
+- Provide a contact form (Formspree) and resume download; refresh LinkedIn/GitHub links.
 - Keep GitHub Pages deployment working (project page under `/portofolio-xavier`).
 
 ## Capabilities
@@ -30,9 +31,10 @@ be rebuilt.
 - `services-offer`: Freelance services/offer section describing engagements Xavier takes on.
 - `experience-timeline`: Experience & impact timeline with quantified results per role.
 - `selected-projects`: Curated case-study projects with problem/impact framing.
-- `skills-overview`: Categorized skills presentation (Cloud & Platform, Data Engineering,
-  Observability, AI Engineering, Analytics).
-- `contact-cta`: Contact form, resume download, and social links.
+- `skills-overview`: Filterable "My stack" logo cloud, grouped by category (Cloud & Platform,
+  Data Engineering, Observability, AI).
+- `rate-estimator`: Client-facing freelance rate (TJM) estimator.
+- `contact-cta`: Contact form (Formspree), resume download, and social links.
 
 ### Modified Capabilities
 <!-- None: no existing OpenSpec specs. -->
@@ -41,7 +43,8 @@ be rebuilt.
 
 - `app/`: full rebuild (build config, dependencies, `src/` components and styles).
 - Dependencies: remove CRA (`react-scripts`, bootstrap, react-bootstrap, animate.css,
-  reaviz, react-on-screen); add Vite, TypeScript, Tailwind, Framer Motion.
+  reaviz, react-on-screen, `@emailjs/browser`); add Vite, TypeScript, Tailwind, Framer Motion,
+  simple-icons; contact posts to Formspree via `fetch`.
 - `.github/workflows/deploy-to-gh-pages.yml`: update build command/output for Vite.
 - `README.md`: update setup and deploy instructions.
 - Content source of truth: `Xavier Lai - Data Platform Engineer.pdf`.

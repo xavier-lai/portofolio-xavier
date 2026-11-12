@@ -29,8 +29,9 @@
 - [x] 4.3 Experience timeline with scroll-reveal and quantified impact (experience-timeline)
 - [x] 4.4 Selected projects as case studies with detail reveal (selected-projects)
 - [x] 4.5 Categorized skills overview (skills-overview)
-- [x] 4.6 Contact form via EmailJS with success/error states + fallback email (contact-cta)
+- [x] 4.6 Contact form via Formspree with success confirmation + error fallback (contact-cta)
 - [x] 4.7 Resume download and LinkedIn/GitHub links (contact-cta)
+- [x] 4.8 Freelance rate (TJM) estimator, compute-on-submit with count-up (rate-estimator)
 
 ## 5. Animation polish
 
@@ -40,7 +41,7 @@
 ## 6. Deployment & docs
 
 - [x] 6.1 Update `.github/workflows/deploy-to-gh-pages.yml` to build with Vite and publish `dist/`
-- [x] 6.2 Add `.env.example` with `VITE_EMAILJS_*` variable names
+- [x] 6.2 Add `.env.example` with `VITE_FORMSPREE_ENDPOINT` + `VITE_CONTACT_EMAIL`
 - [x] 6.3 Update `README.md` for the Vite setup/dev/deploy flow
 
 ## 7. Verification

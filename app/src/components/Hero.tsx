@@ -1,4 +1,4 @@
-import { motion, type MotionValue } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, MapPin } from 'lucide-react'
 import { profile } from '../data/profile'
 import { CountUp } from '../lib/CountUp'
@@ -13,15 +13,9 @@ function StatValue({ value }: { value: string }) {
 }
 
 /** Presentational hero content. Appearance/motion is driven by the Intro scene.
- *  `greet` pops the "Hey!" bubble over the portrait, `heyFade` (scroll-linked, 1 → 0)
- *  makes it disappear when the visitor keeps scrolling. */
-export function HeroContent({
-  greet = true,
-  heyFade,
-}: {
-  greet?: boolean
-  heyFade?: MotionValue<number>
-}) {
+ *  `greet` pops the "Hey!" bubble over the portrait; the Intro toggles it on (a bit after
+ *  the profile appears) then off (on further scroll), after which it never returns. */
+export function HeroContent({ greet = false }: { greet?: boolean }) {
   return (
     <div className="w-full">
       <div className="section grid items-center gap-12 pb-8 pt-0 md:grid-cols-[1.2fr_0.8fr] md:pb-10">
@@ -91,19 +85,18 @@ export function HeroContent({
             <img src={photo} alt={profile.name} className="w-full object-contain" />
           </div>
 
-          {/* "Hey!" greeting, fades out on scroll */}
+          {/* "Hey!" greeting — toggled by the Intro: appears on scroll, then hides for good */}
           <motion.div
-            style={heyFade ? { opacity: heyFade } : undefined}
-            className="absolute -left-3 -top-4 z-10 md:-left-6"
+            initial={false}
+            animate={
+              greet
+                ? { opacity: 1, scale: 1, y: 0 }
+                : { opacity: 0, scale: 0.6, y: 6 }
+            }
+            transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+            className="absolute -left-3 -top-4 z-10 rounded-2xl rounded-bl-sm border border-white/15 bg-ink-800/90 px-3 py-1.5 text-sm font-semibold text-white shadow-lg backdrop-blur-sm md:-left-6"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.6, y: 6 }}
-              animate={greet ? { opacity: 1, scale: 1, y: 0 } : {}}
-              transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.1 }}
-              className="relative rounded-2xl rounded-bl-sm border border-white/15 bg-ink-800/90 px-3 py-1.5 text-sm font-semibold text-white shadow-lg backdrop-blur-sm"
-            >
-              Hey!
-            </motion.div>
+            Hey! 👋
           </motion.div>
         </div>
       </div>
