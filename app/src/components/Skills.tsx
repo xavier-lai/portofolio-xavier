@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Reveal } from '../lib/motion'
+import { Reveal, RevealHeading } from '../lib/motion'
 import { tech, TECH_CATEGORIES, type Tech, type TechCategory } from '../data/tech'
 
 function monogram(t: Tech) {
@@ -48,7 +48,7 @@ export function Skills() {
         <p className="text-sm font-semibold uppercase tracking-widest text-brand-fuchsia">
           Toolbox
         </p>
-        <h2 className="section-title mt-2">My stack</h2>
+        <RevealHeading text="My stack" className="section-title mt-2" />
         <p className="mt-3 max-w-2xl text-slate-400">
           The tools I build with, day to day. Filter by what matters to your project.
         </p>

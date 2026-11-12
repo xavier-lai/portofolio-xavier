@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { profile } from '../data/profile'
+import { scrollToId } from '../lib/useSmoothScroll'
 
 const links = [
   { href: '#services', label: 'Services' },
@@ -37,12 +38,23 @@ export function NavBar() {
             <a
               key={l.href}
               href={l.href}
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToId(l.href)
+              }}
               className="text-sm text-slate-300 transition-colors hover:text-white"
             >
               {l.label}
             </a>
           ))}
-          <a href="#contact" className="btn-primary !px-5 !py-2">
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToId('#contact')
+            }}
+            className="btn-primary !px-5 !py-2"
+          >
             Let’s talk
           </a>
         </div>
@@ -64,7 +76,11 @@ export function NavBar() {
               <a
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  setOpen(false)
+                  scrollToId(l.href)
+                }}
                 className="rounded-lg px-3 py-3 text-slate-200 hover:bg-white/5"
               >
                 {l.label}
@@ -72,7 +88,11 @@ export function NavBar() {
             ))}
             <a
               href="#contact"
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                e.preventDefault()
+                setOpen(false)
+                scrollToId('#contact')
+              }}
               className="btn-primary mt-2"
             >
               Let’s talk

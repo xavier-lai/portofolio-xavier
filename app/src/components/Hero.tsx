@@ -1,15 +1,42 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, MapPin } from 'lucide-react'
 import { profile } from '../data/profile'
+import { CountUp } from '../lib/CountUp'
+import { scrollToId } from '../lib/useSmoothScroll'
 import photo from '../assets/img/xavier-portrait.png'
 import resume from '../assets/pdf/Xavier-Lai-Resume.pdf'
 
+function StatValue({ value }: { value: string }) {
+  const m = value.match(/^(\d+)(.*)$/)
+  if (!m) return <>{value}</>
+  return <CountUp value={Number(m[1])} suffix={m[2]} />
+}
+
 export function Hero() {
   const reduce = useReducedMotion()
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  })
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, 130])
+  const textY = useTransform(scrollYProgress, [0, 1], [0, -50])
+  const fade = useTransform(scrollYProgress, [0, 0.85], [1, 0])
+
+  const textStyle = reduce ? undefined : { y: textY, opacity: fade }
+  const portraitStyle = reduce ? undefined : { y: portraitY }
 
   return (
-    <section id="home" className="relative overflow-hidden pt-32 md:pt-40">
-      <div className="section grid items-center gap-12 pb-10 md:grid-cols-[1.2fr_0.8fr]">
+    <section
+      id="home"
+      ref={ref}
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-28 md:pt-32"
+    >
+      <motion.div
+        style={textStyle}
+        className="section grid items-center gap-12 pb-10 md:grid-cols-[1.2fr_0.8fr]"
+      >
         <div>
           <motion.span
             initial={reduce ? false : { opacity: 0, y: 12 }}
@@ -55,7 +82,14 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.28 }}
             className="mt-8 flex flex-wrap items-center gap-4"
           >
-            <a href="#contact" className="btn-primary">
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToId('#contact')
+              }}
+              className="btn-primary"
+            >
               Get in touch <ArrowRight size={18} />
             </a>
             <a href={resume} target="_blank" rel="noreferrer" className="btn-ghost">
@@ -95,15 +129,14 @@ export function Hero() {
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="absolute -inset-6 rounded-full bg-grad-brand opacity-30 blur-3xl" />
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-brand-violet/25 via-ink-700/40 to-ink-900 backdrop-blur-sm md:animate-float">
-            <img
-              src={photo}
-              alt={profile.name}
-              className="w-full object-contain"
-            />
-          </div>
+          <motion.div
+            style={portraitStyle}
+            className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-brand-violet/25 via-ink-700/40 to-ink-900 backdrop-blur-sm"
+          >
+            <img src={photo} alt={profile.name} className="w-full object-contain" />
+          </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Stats bar */}
       <div className="section !py-0">
@@ -111,7 +144,7 @@ export function Hero() {
           {profile.stats.map((s) => (
             <div key={s.label} className="text-center">
               <div className="font-display text-2xl font-bold text-gradient md:text-3xl">
-                {s.value}
+                <StatValue value={s.value} />
               </div>
               <div className="mt-1 text-xs text-slate-400 md:text-sm">{s.label}</div>
             </div>

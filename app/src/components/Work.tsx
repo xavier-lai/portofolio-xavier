@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { ChevronDown, GraduationCap } from 'lucide-react'
-import { Reveal } from '../lib/motion'
+import { ChevronDown } from 'lucide-react'
+import { Reveal, RevealHeading } from '../lib/motion'
 import {
   engagements,
-  education,
   type EngagementKind,
   type EngagementTag,
 } from '../data/engagements'
@@ -125,7 +124,7 @@ export function Work() {
         <p className="text-sm font-semibold uppercase tracking-widest text-brand-fuchsia">
           Track record
         </p>
-        <h2 className="section-title mt-2">Where I’ve made an impact</h2>
+        <RevealHeading text="Where I’ve made an impact" className="section-title mt-2" />
         <p className="mt-3 max-w-2xl text-slate-400">
           Startups building their first stack, enterprises scaling a mature platform, and
           everything in between. Filter by what’s relevant to you, then tap a card.
@@ -167,23 +166,6 @@ export function Work() {
           ))}
         </AnimatePresence>
       </motion.div>
-
-      <Reveal delay={0.1}>
-        <div className="card-glass mt-6 flex items-start gap-4 p-6">
-          <div className="inline-flex rounded-xl bg-grad-brand p-3 text-white">
-            <GraduationCap size={22} />
-          </div>
-          <div>
-            <h3 className="font-display text-lg font-semibold text-white">
-              {education.degree}
-            </h3>
-            <p className="mt-1 text-sm text-slate-400">
-              {education.school} · {education.year}
-            </p>
-            <p className="mt-1 text-sm text-slate-300">{education.note}</p>
-          </div>
-        </div>
-      </Reveal>
     </section>
   )
 }

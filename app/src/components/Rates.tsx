@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Calculator } from 'lucide-react'
-import { Reveal } from '../lib/motion'
+import { Reveal, RevealHeading } from '../lib/motion'
 
 /**
  * Anchor + multipliers are calibrated so that:
@@ -136,7 +136,7 @@ export function Rates() {
         <p className="text-sm font-semibold uppercase tracking-widest text-brand-fuchsia">
           Budget
         </p>
-        <h2 className="section-title mt-2">Estimate your rate</h2>
+        <RevealHeading text="Estimate your rate" className="section-title mt-2" />
         <p className="mt-3 max-w-2xl text-slate-400">
           A quick, honest ballpark for a freelance engagement. Pick your options and
           estimate — the final rate always depends on scope, so let’s talk for an exact quote.

@@ -149,10 +149,3 @@ export const engagements: Engagement[] = [
     tech: ['Python', 'SQL'],
   },
 ]
-
-export const education = {
-  degree: 'Master in Applied Mathematics, Data Science',
-  school: 'Rennes 2 University',
-  year: '2020',
-  note: 'With honours — data science, digisport option.',
-}

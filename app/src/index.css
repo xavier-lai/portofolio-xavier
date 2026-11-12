@@ -12,8 +12,6 @@
 
   body {
     @apply bg-ink-900 text-slate-200 font-sans antialiased;
-    background-image: theme('backgroundImage.grad-radial');
-    background-attachment: fixed;
   }
 
   ::selection {
@@ -42,8 +40,24 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-fuchsia/60;
   }
 
+  /* Like the old site: outlined button, the gradient fills it from left to right on hover
+     (Let's talk, Get in touch, Send message). */
   .btn-primary {
-    @apply btn bg-grad-brand text-white shadow-lg shadow-brand-violet/25 hover:shadow-brand-fuchsia/40 hover:-translate-y-0.5;
+    @apply btn relative isolate overflow-hidden border border-white/70 bg-transparent text-white;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-y-0 left-0 -z-10 w-0 bg-grad-brand transition-[width] duration-300 ease-in-out;
+  }
+
+  .btn-primary:hover:not(:disabled)::before,
+  .btn-primary:focus-visible::before {
+    @apply w-full;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    @apply border-transparent;
   }
 
   .btn-ghost {

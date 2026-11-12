@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
-import { Reveal } from '../lib/motion'
+import { Reveal, RevealHeading } from '../lib/motion'
 import { iconMap } from '../lib/icons'
 import { services, tracks } from '../data/services'
 
@@ -10,7 +10,7 @@ export function Services() {
         <p className="text-sm font-semibold uppercase tracking-widest text-brand-fuchsia">
           Freelance
         </p>
-        <h2 className="section-title mt-2">What I can do for you</h2>
+        <RevealHeading text="What I can do for you" className="section-title mt-2" />
         <p className="mt-3 max-w-2xl text-slate-400">
           Whatever stage you’re at, I help you build Data Platforms people can actually
           rely on.
