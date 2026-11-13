@@ -60,7 +60,7 @@ export function Skills() {
         </p>
         <RevealHeading text="My stack" className="section-title mt-2" />
         <p className="mt-3 max-w-2xl text-slate-400">
-          The tools I build with, day to day. Filter by what matters to your project.
+          The tools I build with, day to day.
         </p>
       </Reveal>
 

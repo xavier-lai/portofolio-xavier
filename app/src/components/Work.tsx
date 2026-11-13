@@ -127,7 +127,7 @@ export function Work() {
         <RevealHeading text="Where I’ve made an impact" className="section-title mt-2" />
         <p className="mt-3 max-w-2xl text-slate-400">
           Startups building their first stack, enterprises scaling a mature platform, and
-          everything in between. Filter by what’s relevant to you, then tap a card.
+          everything in between.
         </p>
       </Reveal>
 
