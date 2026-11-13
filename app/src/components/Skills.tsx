@@ -9,6 +9,15 @@ function monogram(t: Tech) {
   return clean.length <= 3 ? clean : clean.slice(0, 2)
 }
 
+// Official brand color, but keep near-black marks (Kafka, MCP, Cursor) light on the dark theme.
+function logoColor(hex: string) {
+  const r = parseInt(hex.slice(0, 2), 16)
+  const g = parseInt(hex.slice(2, 4), 16)
+  const b = parseInt(hex.slice(4, 6), 16)
+  const lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255
+  return lum < 0.22 ? '#f1f5f9' : `#${hex}`
+}
+
 function TechChip({ t }: { t: Tech }) {
   return (
     <motion.div
@@ -22,7 +31,8 @@ function TechChip({ t }: { t: Tech }) {
       {t.icon ? (
         <svg
           viewBox="0 0 24 24"
-          className="h-6 w-6 shrink-0 fill-slate-300 transition-colors group-hover:fill-white"
+          className="h-6 w-6 shrink-0"
+          style={{ fill: logoColor(t.icon.hex) }}
           aria-hidden
         >
           <path d={t.icon.path} />

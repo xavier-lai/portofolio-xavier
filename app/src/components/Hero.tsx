@@ -47,7 +47,7 @@ export function HeroContent({ greet = false }: { greet?: boolean }) {
               }}
               className="btn-primary"
             >
-              Get in touch <ArrowRight size={18} />
+              Get a quote <ArrowRight size={18} />
             </a>
             <a href={resume} target="_blank" rel="noreferrer" className="btn-ghost">
               <Download size={18} /> Resume
