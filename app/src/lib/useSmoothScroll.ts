@@ -4,11 +4,24 @@ import Lenis from 'lenis'
 // Shared Lenis instance so nav / rail can scrollTo.
 let lenis: Lenis | null = null
 
-export function scrollToId(id: string) {
+export function scrollToId(id: string, opts?: { immediate?: boolean }) {
   const el = document.querySelector(id)
   if (!el) return
-  if (lenis) lenis.scrollTo(el as HTMLElement, { offset: -80 })
-  else el.scrollIntoView({ behavior: 'smooth' })
+  // Explicit numeric target (resolving by element is unreliable under the tall pinned intro).
+  const y = el.getBoundingClientRect().top + window.scrollY - 72
+  if (lenis) {
+    lenis.resize()
+    // A trusted click on a button *inside* the scroll content lets Lenis interrupt an animated
+    // scrollTo, so content CTAs jump immediately; the fixed nav stays smooth.
+    lenis.scrollTo(y, {
+      duration: 1.2,
+      force: true,
+      lock: true,
+      immediate: opts?.immediate,
+    })
+  } else {
+    window.scrollTo({ top: y, behavior: opts?.immediate ? 'auto' : 'smooth' })
+  }
 }
 
 /** Smooth inertia scrolling via Lenis. No-op (native scroll) under reduced motion. */

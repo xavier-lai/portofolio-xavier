@@ -3,7 +3,6 @@ import { Intro } from './components/Intro'
 import { Services } from './components/Services'
 import { Work } from './components/Work'
 import { Skills } from './components/Skills'
-import { Rates } from './components/Rates'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { ScrollBackground } from './components/ScrollBackground'
@@ -23,7 +22,6 @@ export default function App() {
         <Services />
         <Work />
         <Skills />
-        <Rates />
         <Contact />
       </main>
       <Footer />

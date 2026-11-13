@@ -31,10 +31,10 @@ function EngagementCard({ e }: { e: (typeof engagements)[number] }) {
   const reduce = useReducedMotion()
 
   return (
-    <div className="card-glass overflow-hidden transition-colors hover:border-white/25">
+    <div className="card-glass flex h-full flex-col overflow-hidden transition-colors hover:border-white/25">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-start justify-between gap-4 p-6 text-left"
+        className="flex w-full grow items-start justify-between gap-4 p-6 text-left"
         aria-expanded={open}
       >
         <div>
@@ -127,7 +127,7 @@ export function Work() {
         <RevealHeading text="Where I’ve made an impact" className="section-title mt-2" />
         <p className="mt-3 max-w-2xl text-slate-400">
           Startups building their first stack, enterprises scaling a mature platform, and
-          everything in between. Filter by what’s relevant to you, then tap a card.
+          everything in between.
         </p>
       </Reveal>
 
@@ -160,6 +160,7 @@ export function Work() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.25 }}
+              className="h-full"
             >
               <EngagementCard e={e} />
             </motion.div>

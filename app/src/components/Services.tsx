@@ -11,10 +11,6 @@ export function Services() {
           Freelance
         </p>
         <RevealHeading text="What I can do for you" className="section-title mt-2" />
-        <p className="mt-3 max-w-2xl text-slate-400">
-          Whatever stage you’re at, I help you build Data Platforms people can actually
-          rely on.
-        </p>
       </Reveal>
 
       {/* Dual value prop: startup vs mature platform */}
